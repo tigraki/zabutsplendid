@@ -1259,13 +1259,20 @@
   .fund-breakdown .fund-row:has(+ .fund-total){ border-bottom: none; }
   /* blog: full-width rows; title + preview sit in the centered reading column */
   .blog-list{ max-width: none; }
-  .blog-row{ grid-template-columns: minmax(0, 1fr) minmax(0, var(--measure)) minmax(0, 1fr); column-gap: clamp(1.5rem, 4vw, 3rem); align-items: center; }
-  .blog-row .blog-date{ justify-self: start; }
-  .blog-row .pathway-arrow{ display: block; justify-self: end; }
-  @media (max-width: 55rem){
-    .blog-row{ grid-template-columns: 1fr; row-gap: 0.55rem; }
+  /* text column centered independently; date and arrow pinned to the edges */
+  .blog-row{ display: block; position: relative; }
+  .blog-row > div:not(.blog-date){ max-width: var(--measure); margin-inline: auto; }
+  .blog-row p{ max-width: none; }
+  .blog-row .blog-date{ position: absolute; left: 0; top: 50%; transform: translateY(-50%); }
+  .blog-row .pathway-arrow{ display: block; position: absolute; right: 0; top: 50%; transform: translateY(-50%); }
+  .blog-row:hover .pathway-arrow{ transform: translate(0.3rem, -50%); }
+  @media (max-width: 64rem){
+    .blog-row .blog-date{ position: static; transform: none; display: block; margin-bottom: 0.55rem; }
     .blog-row .pathway-arrow{ display: none; }
+    .blog-row > div:not(.blog-date){ max-width: none; }
   }
+  /* focus ring only for keyboard users, not after a click */
+  a:focus:not(:focus-visible), button:focus:not(:focus-visible){ outline: none; }
 
   /* founder sign-off */
   .body-copy .signoff{ margin-top: 2.5rem; }
