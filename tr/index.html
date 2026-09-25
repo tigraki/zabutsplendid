@@ -1093,8 +1093,10 @@
     background: transparent; border-bottom: none; backdrop-filter: none; -webkit-backdrop-filter: none;
     transition: background-color .35s ease, backdrop-filter .35s ease;
   }
-  /* no background, ever, except behind the open mobile menu */
-  header.site-nav:has(.nav-links.open){ background: var(--bg); }
+  /* solid page-colored nav: invisible at the top, covers text on scroll, no line */
+  header.site-nav, header.site-nav.scrolled, header.site-nav:has(.nav-links.open){
+    background: var(--bg); backdrop-filter: none; -webkit-backdrop-filter: none; border-bottom: none;
+  }
   /* mobile menu: fade instead of slide */
   @media (max-width: 55rem){
     nav.nav-links{
