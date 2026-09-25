@@ -1093,10 +1093,12 @@
     background: transparent; border-bottom: none; backdrop-filter: none; -webkit-backdrop-filter: none;
     transition: background-color .35s ease, backdrop-filter .35s ease;
   }
-  /* solid page-colored nav: invisible at the top, covers text on scroll, no line */
-  header.site-nav, header.site-nav.scrolled, header.site-nav:has(.nav-links.open){
-    background: var(--bg); backdrop-filter: none; -webkit-backdrop-filter: none; border-bottom: none;
+  /* frosted page-colored nav: see-through with blur, no line */
+  header.site-nav, header.site-nav.scrolled{
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: blur(0.75rem); -webkit-backdrop-filter: blur(0.75rem); border-bottom: none;
   }
+  header.site-nav:has(.nav-links.open){ background: var(--bg); }
   /* mobile menu: fade instead of slide */
   @media (max-width: 55rem){
     nav.nav-links{
