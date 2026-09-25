@@ -1297,6 +1297,13 @@
   .offer-close p{ max-width: var(--measure); margin: 0 auto; }
   @media (max-width: 55rem){ .offer-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 36rem){ .offer-grid{ grid-template-columns: 1fr; } }
+
+  /* photography: one image style for cards, captions under grids */
+  .card-img{ display:block; width:100%; height:auto; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 1.4rem; background: color-mix(in srgb, var(--ink) 6%, var(--bg)); }
+  .pillar, .offer{ border-top: none; padding-top: 0; }
+  .pillars-caption, .offer-caption{ margin: 1.25rem 0 0; }
+  .fund-figure{ max-width: 60rem; margin: 0 auto; }
+  .fund-figure .illustration{ width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
 </style>
 </head>
 <body>
@@ -1357,10 +1364,11 @@
         </div>
       </div>
       <div class="pillars">
-        <div class="pillar"><div class="label" lang="it">Terra</div><p>Doğayla iç içe on iki ahşap misafir evi.</p></div>
-        <div class="pillar"><div class="label" lang="it">Persone</div><p>Sicilya mutfağından ve Sambuca'nın Zabut mirasından ilham alan iki ayrı yeme-içme deneyimi.</p></div>
-        <div class="pillar"><div class="label" lang="it">Storie</div><p>Düğünler ve özel etkinlikler için tasarlanmış açık alanlar.</p></div>
+        <div class="pillar"><img class="card-img" src="../img/home-terra.webp" alt="Zabut'un yamaca yayılan ahşap misafir evlerinin konsept görseli" loading="lazy" width="840" height="630"><div class="label" lang="it">Terra</div><p>Doğayla iç içe on iki ahşap misafir evi.</p></div>
+        <div class="pillar"><img class="card-img" src="../img/exp-private-events.webp" alt="Çardak altında bir akşam yemeğinin konsept görseli" loading="lazy" width="840" height="630"><div class="label" lang="it">Persone</div><p>Sicilya mutfağından ve Sambuca'nın Zabut mirasından ilham alan iki ayrı yeme-içme deneyimi.</p></div>
+        <div class="pillar"><img class="card-img" src="../img/exp-weddings.webp" alt="Göle ve denize bakan bir düğün töreninin konsept görseli" loading="lazy" width="840" height="630"><div class="label" lang="it">Storie</div><p>Düğünler ve özel etkinlikler için tasarlanmış açık alanlar.</p></div>
       </div>
+      <p class="caption pillars-caption">Konsept görseller</p>
       <a class="cta project-link" href="#/fundraising">Bütçeyi ve nasıl dahil olabileceğini gör</a>
     </section>
 
@@ -1380,6 +1388,7 @@
       <p>Zabut the Splendid, Sambuca di Sicilia'da şekillenen bir konaklama projesi. Sicilya'nın doğasından ve Sambuca'nın kültürel mirasından ilham alan; konaklamak, bir araya gelmek, kutlamak ve yavaşlamak için bir yer hayal ediyoruz.</p>
     </div>
     <div class="wrap">
+      <figure class="figure fund-figure"><img class="illustration" src="../img/fund-table.webp" alt="Zabut'ta bir zeytin ağacının altındaki uzun sofranın konsept görseli" loading="lazy" width="1500" height="1000"><figcaption class="caption">Konsept görsel</figcaption></figure>
       <h2 class="fund-section-head">Bütçeye ilk bakış</h2>
       <div class="fund-ask">
         <dl class="fund-breakdown">
@@ -1467,13 +1476,14 @@
     </div>
     <div class="wrap">
       <div class="offer-grid">
-        <div class="offer"><div class="label">01</div><h3>Düğünler</h3><p>Ahşap, doğal taş ve rüzgârda salınan hafif kumaşlarla kurulmuş bir tören alanı; sevdiklerin aynı yerde kalıp yemekleri ve zamanı paylaştığı bir düğün hafta sonu.</p></div>
-        <div class="offer"><div class="label">02</div><h3>Özel Etkinlikler</h3><p>Her ölçekte kutlama ve buluşma; bir araya gelmek için de, kendi başına kalmak için de alan var.</p></div>
-        <div class="offer"><div class="label">03</div><h3>İnzivalar</h3><p>Küçük gruplar ve yaratıcı inzivalar; yoga ile başlayan sabahlar ve kendi ritmini izleyen günler.</p></div>
-        <div class="offer"><div class="label">04</div><h3>Atölyeler</h3><p>Çömlek tezgâhında seramik, yemek deneyimleri ve birlikte bir şey üretmenin getirdiği o tanıdık yakınlık.</p></div>
-        <div class="offer"><div class="label">05</div><h3>Sofra</h3><p>Sicilya mutfağından ve Sambuca'nın Arap mirasından ilham alan iki ayrı yeme-içme deneyimi: bazen bir tadım menüsü, bazen birlikte hazırlanan bir yemek.</p></div>
-        <div class="offer"><div class="label">06</div><h3>Toprak</h3><p>Doğa yürüyüşleri, yerel üreticiler ve zanaatkârlar, Sambuca'nın sokakları ya da sadece manzarayı izleyerek geçen bir gün.</p></div>
+        <div class="offer"><img class="card-img" src="../img/exp-weddings.webp" alt="Göle ve denize bakan bir düğün töreninin konsept görseli" loading="lazy" width="840" height="630"><div class="label">01</div><h3>Düğünler</h3><p>Ahşap, doğal taş ve rüzgârda salınan hafif kumaşlarla kurulmuş bir tören alanı; sevdiklerin aynı yerde kalıp yemekleri ve zamanı paylaştığı bir düğün hafta sonu.</p></div>
+        <div class="offer"><img class="card-img" src="../img/exp-private-events.webp" alt="Çardak altında bir akşam yemeğinin konsept görseli" loading="lazy" width="840" height="630"><div class="label">02</div><h3>Özel Etkinlikler</h3><p>Her ölçekte kutlama ve buluşma; bir araya gelmek için de, kendi başına kalmak için de alan var.</p></div>
+        <div class="offer"><img class="card-img" src="../img/exp-retreats.webp" alt="Misafir evlerinin arasında bir yoga seansının konsept görseli" loading="lazy" width="840" height="630"><div class="label">03</div><h3>İnzivalar</h3><p>Küçük gruplar ve yaratıcı inzivalar; yoga ile başlayan sabahlar ve kendi ritmini izleyen günler.</p></div>
+        <div class="offer"><img class="card-img" src="../img/exp-workshops.webp" alt="Yerel ürünlerle yemek yapımının konsept görseli" loading="lazy" width="840" height="630"><div class="label">04</div><h3>Atölyeler</h3><p>Çömlek tezgâhında seramik, yemek deneyimleri ve birlikte bir şey üretmenin getirdiği o tanıdık yakınlık.</p></div>
+        <div class="offer"><img class="card-img" src="../img/exp-table.webp" alt="Sofrada servis edilen yemeklerin konsept görseli" loading="lazy" width="840" height="630"><div class="label">05</div><h3>Sofra</h3><p>Sicilya mutfağından ve Sambuca'nın Arap mirasından ilham alan iki ayrı yeme-içme deneyimi: bazen bir tadım menüsü, bazen birlikte hazırlanan bir yemek.</p></div>
+        <div class="offer"><img class="card-img" src="../img/exp-land.webp" alt="Kasabadaki yerel üreticilerin ve zanaatkârların konsept görseli" loading="lazy" width="840" height="630"><div class="label">06</div><h3>Toprak</h3><p>Doğa yürüyüşleri, yerel üreticiler ve zanaatkârlar, Sambuca'nın sokakları ya da sadece manzarayı izleyerek geçen bir gün.</p></div>
       </div>
+      <p class="caption offer-caption">Konsept görseller</p>
       <div class="offer-close">
         <h2>Bir şey mi planlıyorsun?</h2>
         <p>Zabut'ta bir düğün, inziva ya da etkinlik düşünüyorsan bize yaz. Planlar şekillendikçe seni haberdar edeceğiz.</p>

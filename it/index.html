@@ -1297,6 +1297,13 @@
   .offer-close p{ max-width: var(--measure); margin: 0 auto; }
   @media (max-width: 55rem){ .offer-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 36rem){ .offer-grid{ grid-template-columns: 1fr; } }
+
+  /* photography: one image style for cards, captions under grids */
+  .card-img{ display:block; width:100%; height:auto; aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: 1.4rem; background: color-mix(in srgb, var(--ink) 6%, var(--bg)); }
+  .pillar, .offer{ border-top: none; padding-top: 0; }
+  .pillars-caption, .offer-caption{ margin: 1.25rem 0 0; }
+  .fund-figure{ max-width: 60rem; margin: 0 auto; }
+  .fund-figure .illustration{ width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
 </style>
 </head>
 <body>
@@ -1357,10 +1364,11 @@
         </div>
       </div>
       <div class="pillars">
-        <div class="pillar"><div class="label" lang="it">Terra</div><p>Dodici case in legno per gli ospiti, immerse nel paesaggio.</p></div>
-        <div class="pillar"><div class="label" lang="it">Persone</div><p>Due esperienze gastronomiche distinte, ispirate alla cucina siciliana e all'eredità di Zabut a Sambuca.</p></div>
-        <div class="pillar"><div class="label" lang="it">Storie</div><p>Spazi all'aperto pensati per matrimoni ed eventi privati.</p></div>
+        <div class="pillar"><img class="card-img" src="../img/home-terra.webp" alt="Immagine concettuale delle case in legno di Zabut sulla collina" loading="lazy" width="840" height="630"><div class="label" lang="it">Terra</div><p>Dodici case in legno per gli ospiti, immerse nel paesaggio.</p></div>
+        <div class="pillar"><img class="card-img" src="../img/exp-private-events.webp" alt="Immagine concettuale di una cena serale sotto il pergolato" loading="lazy" width="840" height="630"><div class="label" lang="it">Persone</div><p>Due esperienze gastronomiche distinte, ispirate alla cucina siciliana e all'eredità di Zabut a Sambuca.</p></div>
+        <div class="pillar"><img class="card-img" src="../img/exp-weddings.webp" alt="Immagine concettuale di una cerimonia nuziale affacciata sul lago e sul mare" loading="lazy" width="840" height="630"><div class="label" lang="it">Storie</div><p>Spazi all'aperto pensati per matrimoni ed eventi privati.</p></div>
       </div>
+      <p class="caption pillars-caption">Immagini concettuali</p>
       <a class="cta project-link" href="#/fundraising">Scopri il budget e come partecipare</a>
     </section>
 
@@ -1380,6 +1388,7 @@
       <p>Zabut the Splendid è un progetto di ospitalità che sta prendendo forma a Sambuca di Sicilia. Immaginiamo un luogo in cui soggiornare, ritrovarsi, festeggiare e rallentare, ispirato al paesaggio siciliano e al patrimonio culturale di Sambuca.</p>
     </div>
     <div class="wrap">
+      <figure class="figure fund-figure"><img class="illustration" src="../img/fund-table.webp" alt="Immagine concettuale di una lunga tavola sotto un ulivo a Zabut" loading="lazy" width="1500" height="1000"><figcaption class="caption">Immagine concettuale</figcaption></figure>
       <h2 class="fund-section-head">Un primo sguardo al budget</h2>
       <div class="fund-ask">
         <dl class="fund-breakdown">
@@ -1467,13 +1476,14 @@
     </div>
     <div class="wrap">
       <div class="offer-grid">
-        <div class="offer"><div class="label">01</div><h3>Matrimoni</h3><p>Una cornice per la cerimonia fatta di legno, pietra naturale e tessuti leggeri mossi dalla brezza, e un weekend di nozze in cui le persone care restano nello stesso luogo, condividendo pasti e tempo insieme.</p></div>
-        <div class="offer"><div class="label">02</div><h3>Eventi privati</h3><p>Celebrazioni e incontri di ogni dimensione, con spazio per stare insieme e spazio per stare per conto proprio.</p></div>
-        <div class="offer"><div class="label">03</div><h3>Ritiri</h3><p>Piccoli gruppi e ritiri creativi, con mattine di yoga e giornate che seguono il proprio ritmo.</p></div>
-        <div class="offer"><div class="label">04</div><h3>Laboratori</h3><p>Ceramica al tornio, esperienze di cucina e quella familiarità che nasce dal creare qualcosa insieme.</p></div>
-        <div class="offer"><div class="label">05</div><h3>La tavola</h3><p>Due esperienze gastronomiche distinte, ispirate alla cucina siciliana e all'eredità araba di Sambuca: a volte un menu degustazione, a volte un pasto preparato insieme.</p></div>
-        <div class="offer"><div class="label">06</div><h3>Il territorio</h3><p>Passeggiate nella natura, coltivatori e artigiani locali, le strade di Sambuca, o semplicemente una giornata a guardare il panorama.</p></div>
+        <div class="offer"><img class="card-img" src="../img/exp-weddings.webp" alt="Immagine concettuale di una cerimonia nuziale affacciata sul lago e sul mare" loading="lazy" width="840" height="630"><div class="label">01</div><h3>Matrimoni</h3><p>Una cornice per la cerimonia fatta di legno, pietra naturale e tessuti leggeri mossi dalla brezza, e un weekend di nozze in cui le persone care restano nello stesso luogo, condividendo pasti e tempo insieme.</p></div>
+        <div class="offer"><img class="card-img" src="../img/exp-private-events.webp" alt="Immagine concettuale di una cena serale sotto il pergolato" loading="lazy" width="840" height="630"><div class="label">02</div><h3>Eventi privati</h3><p>Celebrazioni e incontri di ogni dimensione, con spazio per stare insieme e spazio per stare per conto proprio.</p></div>
+        <div class="offer"><img class="card-img" src="../img/exp-retreats.webp" alt="Immagine concettuale di una sessione di yoga tra le case" loading="lazy" width="840" height="630"><div class="label">03</div><h3>Ritiri</h3><p>Piccoli gruppi e ritiri creativi, con mattine di yoga e giornate che seguono il proprio ritmo.</p></div>
+        <div class="offer"><img class="card-img" src="../img/exp-workshops.webp" alt="Immagine concettuale di cucina con prodotti locali" loading="lazy" width="840" height="630"><div class="label">04</div><h3>Laboratori</h3><p>Ceramica al tornio, esperienze di cucina e quella familiarità che nasce dal creare qualcosa insieme.</p></div>
+        <div class="offer"><img class="card-img" src="../img/exp-table.webp" alt="Immagine concettuale di piatti serviti a tavola" loading="lazy" width="840" height="630"><div class="label">05</div><h3>La tavola</h3><p>Due esperienze gastronomiche distinte, ispirate alla cucina siciliana e all'eredità araba di Sambuca: a volte un menu degustazione, a volte un pasto preparato insieme.</p></div>
+        <div class="offer"><img class="card-img" src="../img/exp-land.webp" alt="Immagine concettuale di coltivatori e artigiani locali nel paese" loading="lazy" width="840" height="630"><div class="label">06</div><h3>Il territorio</h3><p>Passeggiate nella natura, coltivatori e artigiani locali, le strade di Sambuca, o semplicemente una giornata a guardare il panorama.</p></div>
       </div>
+      <p class="caption offer-caption">Immagini concettuali</p>
       <div class="offer-close">
         <h2>Stai pensando a qualcosa?</h2>
         <p>Se stai pensando a un matrimonio, a un ritiro o a un evento a Zabut, scrivici. Ti terremo aggiornato man mano che i progetti prenderanno forma.</p>
