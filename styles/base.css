@@ -1,0 +1,93 @@
+/* Base: reset, document defaults, typography primitives, keyframes.
+   Ported 1:1 from the reference inline stylesheet; source order preserved. */
+
+*{ box-sizing: border-box; }
+
+/* `hidden` must always win, no matter what display an element's own class sets
+     (several classes below set display: block/flex explicitly, which otherwise ties
+     the native [hidden]{display:none} rule on specificity and beats it on source order). */
+[hidden]{ display: none !important; }
+
+html{ scroll-behavior: smooth; overflow-anchor: none; }
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *{ animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--serif-body);
+    font-size: var(--step-0);
+    line-height:var(--lh-170);
+    transition: var(--transition-palette);
+    overflow-x: hidden;
+  }
+
+a{ color: inherit; }
+
+img{ max-width:100%; height:auto; display:block; }
+
+::selection{ background: var(--accent); color: var(--ivory); }
+
+:focus-visible{
+    outline: var(--border-thick) solid var(--accent);
+    outline-offset: var(--space-020);
+  }
+
+.label{
+    font-family: var(--serif-body);
+    font-size: var(--fs-078);
+    letter-spacing: var(--track-caps);
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+h1, h2, h3{
+    font-family: var(--serif-display);
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: var(--track-neg-010);
+  }
+
+.italic-line{
+    font-family: var(--serif-body);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+hr.rule{
+    border: none;
+    border-top: var(--border-hair) solid var(--line-faint);
+    margin: 0;
+    transition: var(--transition-palette);
+  }
+
+@keyframes fadeIn{ from{ opacity:0; } to{ opacity:1; } }
+
+@keyframes rise{
+    from{ opacity:0; transform: translateY(var(--space-100)); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+
+/* larger screens: scale everything a touch so the layout doesn't look small */
+@media (min-width: 100rem){
+  html{ font-size: 106.25%; }
+}
+
+@media (min-width: 140rem){
+  html{ font-size: 118.75%; }
+}
+
+body{
+    font-size: clamp(1.14rem, 1.06rem + 0.3vw, 1.28rem);
+    font-weight: 500; line-height:var(--lh-162); letter-spacing: var(--track-003);
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; font-kerning: normal;
+  }
+
+h1, h2, h3{ font-weight: 400; letter-spacing: var(--track-neg-012); }
+
+/* small caps: labels, nav, buttons, links share one voice */
+.label{ font-size: var(--fs-072); letter-spacing: var(--track-260); font-weight: 600; }

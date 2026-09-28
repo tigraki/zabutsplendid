@@ -1,0 +1,230 @@
+/* ==========================================================================
+   Design tokens — the single source of design values for the Zabut site.
+   Every other stylesheet references these custom properties; none of them
+   carries a raw colour or a repeated size.
+
+   Values are carried over 1:1 from the reference site (its :root variables,
+   plus every raw value that was repeated in its CSS), so the visual match
+   stays exact. Media-query breakpoints are the one exception: CSS does not
+   allow custom properties inside @media, so they stay literal in the
+   stylesheets that use them.
+   ========================================================================== */
+
+:root{
+  /* ----- Palette: warm (default; from the brand guideline) ----- */
+  --olive: #7C7A5D;
+  --terracotta: #B26E4B;
+  --stone: #D9C5AF;
+  --ivory: #F2ECE2;
+  --charcoal: #3B2B28;
+
+  /* ----- Semantic colours (resolve against whichever palette is active) ----- */
+  --bg: var(--ivory);
+  --bg-soft: var(--stone);
+  --ink: var(--charcoal);
+  --ink-soft: color-mix(in srgb, var(--charcoal) 72%, var(--ivory));
+  /* terracotta, deepened so small text passes AA. Fixed in both palettes,
+     exactly as in the reference (its v2 override sits outside the palette). */
+  --accent: #9A5A3B;
+  --line: var(--olive);
+  --line-faint: color-mix(in srgb, var(--olive) 30%, transparent);
+
+  /* ----- Font families (next/font exposes --font-playfair / --font-cormorant) ----- */
+  --serif-display: var(--font-playfair), 'Iowan Old Style', 'Palatino Linotype', serif;
+  --serif-body: var(--font-cormorant), 'Palatino Linotype', 'Book Antiqua', serif;
+
+  /* ----- Type scale: fluid steps ----- */
+  --step-0: clamp(1rem, 0.95rem + 0.2vw, 1.08rem);       /* legacy base step (overridden on body) */
+  --fs-h1: clamp(2.3rem, 1.55rem + 3.2vw, 3.8rem);        /* page titles */
+  --fs-h2: clamp(1.6rem, 1.3rem + 1.6vw, 2.5rem);         /* section headings */
+  --fs-h3: clamp(1.3rem, 1.15rem + 0.7vw, 1.65rem);       /* subheads, list titles */
+  --track-caps: 0.22em;                                   /* small caps: nav, buttons, links */
+
+  /* ----- Rhythm ----- */
+  --measure: 36rem;                                       /* one reading column for every page */
+  --space-section: clamp(4.5rem, 8.5vw, 7.5rem);
+
+  /* ----- Shadows ----- */
+  --shadow-tip: 0 var(--space-060) var(--space-160) var(--mix-ink-18-transparent);
+
+  /* ----- Icons ----- */
+  /* "image" pictogram shown on placeholder image tiles (currently unused by any page) */
+  --icon-image-placeholder: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22rgba%280%2C0%2C0%2C0.3%29%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%222%22%20y%3D%224%22%20width%3D%2220%22%20height%3D%2216%22%20rx%3D%221.6%22/%3E%3Ccircle%20cx%3D%228%22%20cy%3D%229.3%22%20r%3D%221.5%22/%3E%3Cpath%20d%3D%22M2.8%2017.2%20L8.5%2012%20L13%2015.6%20L17%2012.2%20L21.5%2016.5%22/%3E%3C/svg%3E");
+
+  /* ----- Transitions ----- */
+  --transition-palette: background-color var(--dur-slow) ease, color var(--dur-slow) ease, border-color var(--dur-slow) ease;
+
+  /* ----- Layout ----- */
+  --container-max: 73.75rem;
+  --gutter: clamp(1.25rem, 4vw, 2rem);
+  --size-1100: 11rem;
+  --size-2000: 20rem;
+  --size-2200: 22rem;
+  --size-3400: 34rem;
+  --size-3500: 35rem;
+  --size-4800: 48rem;
+
+  /* ----- Spacing — rem, named by value ×100 (e.g. --space-120 = 1.2rem) ----- */
+  --space-015: 0.15rem;
+  --space-020: 0.2rem;
+  --space-025: 0.25rem;
+  --space-030: 0.3rem;
+  --space-035: 0.35rem;
+  --space-040: 0.4rem;
+  --space-050: 0.5rem;
+  --space-055: 0.55rem;
+  --space-060: 0.6rem;
+  --space-070: 0.7rem;
+  --space-075: 0.75rem;
+  --space-080: 0.8rem;
+  --space-090: 0.9rem;
+  --space-095: 0.95rem;
+  --space-100: 1rem;
+  --space-105: 1.05rem;
+  --space-110: 1.1rem;
+  --space-115: 1.15rem;
+  --space-120: 1.2rem;
+  --space-125: 1.25rem;
+  --space-130: 1.3rem;
+  --space-140: 1.4rem;
+  --space-150: 1.5rem;
+  --space-160: 1.6rem;
+  --space-170: 1.7rem;
+  --space-175: 1.75rem;
+  --space-180: 1.8rem;
+  --space-190: 1.9rem;
+  --space-200: 2rem;
+  --space-220: 2.2rem;
+  --space-230: 2.3rem;
+  --space-240: 2.4rem;
+  --space-250: 2.5rem;
+  --space-260: 2.6rem;
+  --space-280: 2.8rem;
+  --space-300: 3rem;
+  --space-400: 4rem;
+
+  /* ----- Fluid spacing — repeated clamp() values, named min-max ×100 ----- */
+  --fluid-150-220: clamp(1.5rem, 4vw, 2.2rem);
+  --fluid-150-250-vh: clamp(1.5rem, 3vh, 2.5rem);
+  --fluid-150-300: clamp(1.5rem, 4vw, 3rem);
+  --fluid-200-300: clamp(2rem, 5vw, 3rem);
+  --fluid-250-350: clamp(2.5rem, 6vw, 3.5rem);
+  --fluid-250-350-slow: clamp(2.5rem, 5vw, 3.5rem);
+  --fluid-250-400: clamp(2.5rem, 6vw, 4rem);
+  --fluid-300-450: clamp(3rem, 6vw, 4.5rem);
+
+  /* ----- Type scale — font sizes, named by value ×100 ----- */
+  --fs-062: 0.62rem;
+  --fs-064: 0.64rem;
+  --fs-070: 0.7rem;
+  --fs-072: 0.72rem;
+  --fs-074: 0.74rem;
+  --fs-076: 0.76rem;
+  --fs-078: 0.78rem;
+  --fs-080: 0.8rem;
+  --fs-082: 0.82rem;
+  --fs-084: 0.84rem;
+  --fs-085: 0.85rem;
+  --fs-088: 0.875rem;
+  --fs-090: 0.9rem;
+  --fs-092: 0.92rem;
+  --fs-095: 0.95rem;
+  --fs-100: 1rem;
+  --fs-102: 1.02rem;
+  --fs-105: 1.05rem;
+  --fs-106: 1.06rem;
+  --fs-108: 1.08rem;
+  --fs-110: 1.1rem;
+  --fs-112: 1.12rem;
+  --fs-115: 1.15rem;
+  --fs-118: 1.18rem;
+  --fs-120: 1.2rem;
+  --fs-125: 1.25rem;
+  --fs-130: 1.3rem;
+  --fs-155: 1.55rem;
+  --fs-170: 1.7rem;
+
+  /* ----- Type scale — line heights, named by value ×100 ----- */
+  --lh-080: 0.8;
+  --lh-095: .95;
+  --lh-100: 1;
+  --lh-108: 1.08;
+  --lh-110: 1.1;
+  --lh-115: 1.15;
+  --lh-120: 1.2;
+  --lh-125: 1.25;
+  --lh-130: 1.3;
+  --lh-135: 1.35;
+  --lh-155: 1.55;
+  --lh-160: 1.6;
+  --lh-162: 1.62;
+  --lh-165: 1.65;
+  --lh-170: 1.7;
+
+  /* ----- Type scale — letter-spacing, named by value ×1000 ----- */
+  --track-003: 0.003em;
+  --track-020: 0.02em;
+  --track-030: 0.03em;
+  --track-040: 0.04em;
+  --track-080: 0.08em;
+  --track-100: 0.1em;
+  --track-120: 0.12em;
+  --track-140: 0.14em;
+  --track-150: 0.15em;
+  --track-160: 0.16em;
+  --track-180: 0.18em;
+  --track-200: 0.2em;
+  --track-240: 0.24em;
+  --track-260: 0.26em;
+  --track-300: 0.3em;
+  --track-320: 0.32em;
+  --track-neg-010: -0.01em;
+  --track-neg-012: -0.012em;
+
+  /* ----- Radii ----- */
+  --radius-lg: 0.4rem;
+  --radius-md: 0.25rem;
+  --radius-pill: 2rem;
+  --radius-round: 3rem;
+  --radius-sm: 0.2rem;
+  --radius-tile: 0.3rem;
+  --radius-xs: 0.15rem;
+
+  /* ----- Borders ----- */
+  --border-hair: 0.0625rem;
+  --border-thick: 0.125rem;
+
+  /* ----- Motion — durations ----- */
+  --dur-base: .35s;
+  --dur-fast: .25s;
+  --dur-rise: .9s;
+  --dur-slow: .5s;
+
+  /* ----- Derived colours — palette-aware mixes (--mix-<colour>-<percent>-<base>) ----- */
+  --mix-accent-18-bg: color-mix(in srgb, var(--accent) 18%, var(--bg));
+  --mix-accent-30-bg: color-mix(in srgb, var(--accent) 30%, var(--bg));
+  --mix-bg-85-transparent: color-mix(in srgb, var(--bg) 85%, transparent);
+  --mix-bg-90-transparent: color-mix(in srgb, var(--bg) 90%, transparent);
+  --mix-charcoal-45-transparent: color-mix(in srgb, var(--charcoal) 45%, transparent);
+  --mix-ink-03-bg: color-mix(in srgb, var(--ink) 3%, var(--bg));
+  --mix-ink-04-bg: color-mix(in srgb, var(--ink) 4%, var(--bg));
+  --mix-ink-05-bg: color-mix(in srgb, var(--ink) 5%, var(--bg));
+  --mix-ink-06-bg: color-mix(in srgb, var(--ink) 6%, var(--bg));
+  --mix-ink-08-bg: color-mix(in srgb, var(--ink) 8%, var(--bg));
+  --mix-ink-14-bg: color-mix(in srgb, var(--ink) 14%, var(--bg));
+  --mix-ink-18-transparent: color-mix(in srgb, var(--ink) 18%, transparent);
+  --mix-ink-22-bg: color-mix(in srgb, var(--ink) 22%, var(--bg));
+  --mix-ivory-55-transparent: color-mix(in srgb, var(--ivory) 55%, transparent);
+}
+
+[data-palette="silver"]{
+  /* Silver — a second, more minimal theme. "Marble" here means the colour
+     choice only (white surfaces, near-black ink/buttons) — flat and solid, no
+     texture, no gradient. The logo and every other image asset are untouched;
+     only these colour tokens change. Every background stays white, never grey. */
+  --olive: #DCDCD6;      /* --line: soft hairline borders only — never used as a fill */
+  --terracotta: #131313; /* near-black — buttons, CTAs, underlines */
+  --stone: #F7F7F5;      /* --bg-soft / card fills: a whisper off white, not grey */
+  --ivory: #FFFFFF;      /* --bg: solid white */
+  --charcoal: #141414;   /* --ink: near-black text */
+}
