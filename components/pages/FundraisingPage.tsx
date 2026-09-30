@@ -13,10 +13,12 @@ export function FundraisingPage({ lang }: { lang: Lang }) {
     const copy = c.budget.rows[row.id];
     const value =
       'amount' in row
-        ? formatAmount(row.amount, c.budget.currency)
-        : row.kind === 'pending'
-          ? c.budget.pendingValue
-          : c.budget.totalValue;
+        ? formatAmount(row.amount, c.budget.currency, row.currency)
+        : row.kind === 'total'
+          ? c.budget.totalValue
+          : row.status === 'toBudget'
+            ? c.budget.toBudgetValue
+            : c.budget.pendingValue;
     return {
       id: row.id,
       kind: row.kind,

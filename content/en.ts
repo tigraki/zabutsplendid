@@ -92,20 +92,13 @@ export const en: SiteContent = {
       budget: {
         title: "An early look at the budget",
         rows: {
-          property: {
-            label: "Property acquisition",
+          twoPersonLodges: {
+            label: "Six two-person lodges",
+            note: "6 × €16,000",
           },
-          guestHouses: {
-            label: "Twelve timber guest houses",
-            note: "Estimated at €9,000 each",
-          },
-          weddingSetting: {
-            label: "Wedding setting",
-            note: "Natural stone, timber and reusable decorative materials",
-          },
-          entrance: {
-            label: "Entrance and selected pathways",
-            note: "Stone, gravel and landscape materials",
+          familyLodges: {
+            label: "Six family lodges",
+            note: "6 × €31,000",
           },
           restaurants: {
             label: "Two restaurant concepts",
@@ -114,33 +107,61 @@ export const en: SiteContent = {
           bathrooms: {
             label: "Bathroom and toilet renovations",
           },
-          digital: {
-            label: "Website, brand assets and pre-opening digital marketing",
-            tip: "Digital launch preparation includes website design and setup, domain and hosting, the social media launch and brand story, production-ready vector files for the logo and brand book, and approximately 9–12 AI-assisted concept visuals. These visuals will illustrate the proposed design and will be identified as concepts until the spaces are built.",
+          entrance: {
+            label: "Entrance and selected pathways",
+            note: "Stone, gravel and landscape materials",
           },
-          contingency: {
-            label: "Contingency",
-            note: "Buffer for unforeseen costs, about 16% of the items above",
+          weddingSetting: {
+            label: "Wedding setting",
+            note: "Natural stone, timber and reusable decorative materials",
           },
-          seed: {
-            label: "Seed investment",
-            tip: "The seed investment covers the items estimated so far plus a contingency buffer. It is not the full cost of opening Zabut. We will update the funding target after confirming the property terms, technical requirements, transport plan and supplier quotes.",
+          guestSubtotal: {
+            label: "Guest houses and shared spaces",
+          },
+          property: {
+            label: "Initial property payment allowance",
+            note: "Not the full purchase price; future rent-to-buy payments are modelled separately",
+          },
+          itemsSubtotal: {
+            label: "Property, lodges and shared spaces",
           },
           transport: {
             label: "Transport of materials from Türkiye to Sicily",
           },
+          costedScope: {
+            label: "Preliminary costed scope",
+            tip: "Our initial budget covers the proposed property entry payment, twelve timber guest houses, shared hospitality spaces and materials transport from Türkiye to Sicily. The complete funding requirement will be confirmed once the remaining costs and contingency are budgeted.",
+          },
+          digital: {
+            label: "Website, brand assets and pre-opening digital marketing",
+            note: "Currency to be confirmed",
+            tip: "Digital launch preparation includes website design and setup, domain and hosting, the social media launch and brand story, production-ready vector files for the logo and brand book, and approximately 9–12 AI-assisted concept visuals. These visuals will illustrate the proposed design and will be identified as concepts until the spaces are built.",
+          },
           company: {
             label: "Italian company formation and professional fees",
+          },
+          permits: {
+            label: "Permits, infrastructure and installation",
+          },
+          pools: {
+            label: "Two private pools",
+          },
+          operating: {
+            label: "Equipment, taxes, pre-opening staffing, working capital and contingency",
           },
           total: {
             label: "Complete funding target",
           },
         },
         pendingValue: "Quote pending",
+        toBudgetValue: "To be budgeted",
         totalValue: "To be confirmed",
         infoButtonLabel: "More information",
         currency: {
-          symbol: "€",
+          symbols: {
+            EUR: "€",
+            USD: "US$",
+          },
           position: "before",
           groupSeparator: ",",
         },

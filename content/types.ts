@@ -36,17 +36,23 @@ export type PillarKey = 'terra' | 'persone' | 'storie';
 export type OfferKey = 'weddings' | 'privateEvents' | 'retreats' | 'workshops' | 'table' | 'land';
 export type BudgetRowId =
   | 'property'
-  | 'guestHouses'
+  | 'twoPersonLodges'
+  | 'familyLodges'
+  | 'guestSubtotal'
   | 'weddingSetting'
   | 'entrance'
   | 'restaurants'
   | 'bathrooms'
-  | 'digital'
-  | 'contingency'
-  | 'seed'
+  | 'itemsSubtotal'
   | 'transport'
+  | 'costedScope'
+  | 'digital'
   | 'company'
+  | 'permits'
+  | 'pools'
+  | 'operating'
   | 'total';
+export type CurrencyCode = 'EUR' | 'USD';
 export type PostSlug = 'land-vision';
 
 export interface BodySection {
@@ -124,11 +130,14 @@ export interface FundraisingPage extends PageIntro {
   budget: {
     title: string;
     rows: Record<BudgetRowId, { label: string; note?: string; tip?: string }>;
+    /** Value shown on rows waiting for a supplier quote. */
     pendingValue: string;
+    /** Value shown on costs that are not budgeted yet. */
+    toBudgetValue: string;
     totalValue: string;
     infoButtonLabel: string;
     /** How amounts from shared.ts are written in this language. */
-    currency: { symbol: string; position: 'before' | 'after'; groupSeparator: string };
+    currency: { symbols: Record<CurrencyCode, string>; position: 'before' | 'after'; groupSeparator: string };
   };
   deckNote: { label: string; text: string; linkLabel: string };
   support: BodySection;

@@ -1,7 +1,7 @@
 import { en } from '@/content/en';
 import { it } from '@/content/it';
 import { tr } from '@/content/tr';
-import type { Lang, SiteContent } from '@/content/types';
+import type { CurrencyCode, Lang, SiteContent } from '@/content/types';
 
 export const LANGS: readonly Lang[] = ['en', 'it', 'tr'];
 export const DEFAULT_LANG: Lang = 'en';
@@ -29,10 +29,12 @@ export function formatDate(iso: string, lang: Lang): string {
 
 export function formatAmount(
   amount: number,
-  currency: SiteContent['pages']['fundraising']['budget']['currency'],
+  format: SiteContent['pages']['fundraising']['budget']['currency'],
+  code: CurrencyCode = 'EUR',
 ): string {
-  const digits = String(amount).replace(/\B(?=(\d{3})+(?!\d))/g, currency.groupSeparator);
-  return currency.position === 'before' ? `${currency.symbol}${digits}` : `${digits} ${currency.symbol}`;
+  const digits = String(amount).replace(/\B(?=(\d{3})+(?!\d))/g, format.groupSeparator);
+  const symbol = format.symbols[code];
+  return format.position === 'before' ? `${symbol}${digits}` : `${digits} ${symbol}`;
 }
 
 /** Validate the [lang] route param of the prefixed (it/tr) route tree. */

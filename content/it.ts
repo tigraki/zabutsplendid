@@ -92,20 +92,13 @@ export const it: SiteContent = {
       budget: {
         title: "Un primo sguardo al budget",
         rows: {
-          property: {
-            label: "Acquisto della proprietà",
+          twoPersonLodges: {
+            label: "Sei case per due persone",
+            note: "6 × €16.000",
           },
-          guestHouses: {
-            label: "Dodici case in legno per gli ospiti",
-            note: "Stimate in €9.000 ciascuna",
-          },
-          weddingSetting: {
-            label: "Allestimento per matrimoni",
-            note: "Pietra naturale, legno e materiali decorativi riutilizzabili",
-          },
-          entrance: {
-            label: "Ingresso e percorsi selezionati",
-            note: "Pietra, ghiaia e materiali per il paesaggio",
+          familyLodges: {
+            label: "Sei case per famiglie",
+            note: "6 × €31.000",
           },
           restaurants: {
             label: "Due concept di ristorazione",
@@ -114,33 +107,61 @@ export const it: SiteContent = {
           bathrooms: {
             label: "Ristrutturazione di bagni e servizi",
           },
-          digital: {
-            label: "Sito web, identità di marca e marketing digitale pre-apertura",
-            tip: "La preparazione del lancio digitale comprende progettazione e realizzazione del sito web, dominio e hosting, lancio sui social media e racconto del brand, file vettoriali pronti per la produzione di logo e manuale del brand, e circa 9–12 immagini concettuali realizzate con l'aiuto dell'IA. Queste immagini illustreranno il progetto proposto e saranno indicate come concept finché gli spazi non saranno costruiti.",
+          entrance: {
+            label: "Ingresso e percorsi selezionati",
+            note: "Pietra, ghiaia e materiali per il paesaggio",
           },
-          contingency: {
-            label: "Imprevisti",
-            note: "Margine per costi imprevisti, circa il 16% delle voci precedenti",
+          weddingSetting: {
+            label: "Allestimento per matrimoni",
+            note: "Pietra naturale, legno e materiali decorativi riutilizzabili",
           },
-          seed: {
-            label: "Investimento seed",
-            tip: "L'investimento seed copre le voci stimate finora più un margine per imprevisti. Non rappresenta il costo complessivo dell'apertura di Zabut. Aggiorneremo l'obiettivo di finanziamento dopo aver confermato le condizioni di acquisto della proprietà, i requisiti tecnici, il piano di trasporto e i preventivi dei fornitori.",
+          guestSubtotal: {
+            label: "Case per gli ospiti e spazi condivisi",
+          },
+          property: {
+            label: "Pagamento iniziale per la proprietà",
+            note: "Non è il prezzo d'acquisto completo; i futuri pagamenti del rent-to-buy sono calcolati a parte",
+          },
+          itemsSubtotal: {
+            label: "Proprietà, case e spazi condivisi",
           },
           transport: {
             label: "Trasporto dei materiali dalla Turchia alla Sicilia",
           },
+          costedScope: {
+            label: "Costi stimati preliminari",
+            tip: "Il budget iniziale copre il pagamento d'ingresso previsto per la proprietà, dodici case in legno per gli ospiti, gli spazi comuni dell'ospitalità e il trasporto dei materiali dalla Turchia alla Sicilia. Il fabbisogno complessivo sarà confermato una volta messi a budget i costi restanti e gli imprevisti.",
+          },
+          digital: {
+            label: "Sito web, identità di marca e marketing digitale pre-apertura",
+            note: "Valuta da confermare",
+            tip: "La preparazione del lancio digitale comprende progettazione e realizzazione del sito web, dominio e hosting, lancio sui social media e racconto del brand, file vettoriali pronti per la produzione di logo e manuale del brand, e circa 9–12 immagini concettuali realizzate con l'aiuto dell'IA. Queste immagini illustreranno il progetto proposto e saranno indicate come concept finché gli spazi non saranno costruiti.",
+          },
           company: {
             label: "Costituzione della società italiana e onorari professionali",
+          },
+          permits: {
+            label: "Permessi, infrastrutture e installazione",
+          },
+          pools: {
+            label: "Due piscine private",
+          },
+          operating: {
+            label: "Attrezzature, imposte, personale pre-apertura, capitale circolante e imprevisti",
           },
           total: {
             label: "Obiettivo di finanziamento complessivo",
           },
         },
         pendingValue: "Preventivo in attesa",
+        toBudgetValue: "Da mettere a budget",
         totalValue: "Da confermare",
         infoButtonLabel: "Maggiori informazioni",
         currency: {
-          symbol: "€",
+          symbols: {
+            EUR: "€",
+            USD: "US$",
+          },
           position: "before",
           groupSeparator: ".",
         },

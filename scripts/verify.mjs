@@ -103,7 +103,13 @@ function snapshot(page) {
         const style = {};
         for (const p of PROPS) style[p] = cs.getPropertyValue(p);
         const text = [...el.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent).join('').replace(/\s+/g, ' ').trim();
+        const dl = document.querySelector('.fund-breakdown');
         out.push({
+          // budget rows (inside the table) and everything after the table, for the
+          // intended budget update (see BUDGET_CHANGED below)
+          inBudget: !!dl && dl !== el && dl.contains(el),
+          afterBudget: !!dl && !!(dl.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING) && !dl.contains(el),
+          isBudget: dl === el,
           tag: el.tagName.toLowerCase(),
           cls: (el.getAttribute('class') || '').replace(/\s*\bscrolled\b/, ''),
           depth,
@@ -129,8 +135,15 @@ const INTENDED_TEXT = [
   "Sicilya mutfağından ve Sambuca'nın Arap mirasından ilham alan iki ayrı yeme-içme deneyimi.",
 ];
 
+// The fundraising budget was updated on purpose after the port (new figures and an extra
+// "Subtotal of items estimated so far" row). Its rows are not compared; the table growing
+// taller, and everything below it moving down by the same amount, is reported as intended.
 function diffSnapshots(a, b) {
   const issues = [];
+  if (b.some((e) => e.isBudget)) {
+    a = a.filter((e) => !e.inBudget);
+    b = b.filter((e) => !e.inBudget);
+  }
   if (a.length !== b.length) issues.push(`element count ${a.length} vs ${b.length}`);
   const n = Math.min(a.length, b.length);
   for (let i = 0; i < n; i++) {
@@ -153,7 +166,12 @@ function diffSnapshots(a, b) {
       if (x.tag === 'img' && p === 'aspect-ratio' && x.style[p] === 'auto' && /^(auto )?\d+ \/ \d+$/.test(y.style[p])) continue;
       issues.push(`#${i} ${label} ${p}: ${x.style[p]} vs ${y.style[p]}`);
     }
-    if (x.box.some((v, k) => Math.abs(v - y.box[k]) > 1)) issues.push(`${intended ? 'intended: ' : ''}#${i} ${label} box ${x.box} vs ${y.box}`);
+    const budgetShift =
+      (y.isBudget && Math.abs(x.box[0] - y.box[0]) <= 1 && Math.abs(x.box[1] - y.box[1]) <= 1 && Math.abs(x.box[2] - y.box[2]) <= 1) ||
+      (y.afterBudget && [0, 2, 3].every((k) => Math.abs(x.box[k] - y.box[k]) <= 1)) ||
+      // containers that hold the table grow by the same amount
+      (!y.afterBudget && !y.isBudget && [0, 1, 2].every((k) => Math.abs(x.box[k] - y.box[k]) <= 1) && y.box[3] > x.box[3] && b.some((e) => e.isBudget));
+    if (x.box.some((v, k) => Math.abs(v - y.box[k]) > 1)) issues.push(`${intended || budgetShift ? 'intended: ' : ''}#${i} ${label} box ${x.box} vs ${y.box}`);
   }
   return issues;
 }

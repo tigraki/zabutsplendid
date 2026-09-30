@@ -1,4 +1,4 @@
-import type { BudgetRowId, ImageAltKey, Lang, OfferKey, PillarKey, PostSlug } from './types';
+import type { BudgetRowId, CurrencyCode, ImageAltKey, Lang, OfferKey, PillarKey, PostSlug } from './types';
 
 /**
  * Non-copy content shared by all three languages: image files and sizes, links,
@@ -80,22 +80,44 @@ export const offers: { key: OfferKey; image: SharedImage }[] = [
 ];
 
 export type BudgetRow =
-  | { id: BudgetRowId; kind: 'item' | 'subtotal'; amount: number; tipId?: string }
-  | { id: BudgetRowId; kind: 'pending' | 'total' };
+  | {
+      id: BudgetRowId;
+      /** item: a costed line · itemsSubtotal: plain bold subtotal · subtotal: the highlighted total */
+      kind: 'item' | 'itemsSubtotal' | 'subtotal';
+      amount: number;
+      /** Defaults to EUR. */
+      currency?: CurrencyCode;
+      tipId?: string;
+    }
+  | {
+      id: BudgetRowId;
+      /** pending: listed, not costed yet (`status` picks the wording) · total: the funding target */
+      kind: 'pending' | 'total';
+      status?: 'quote' | 'toBudget';
+    };
 
-/** Fundraising budget, in display order. Amounts in euros. */
+/**
+ * Fundraising budget, in display order. Mirrors the "Funding & Use of Funds" slide of the
+ * investor pitch deck (preliminary costed scope €413,500, plus US$12,000 for brand,
+ * website and pre-opening marketing). Items must add up; scripts/verify-behaviour.mjs checks it.
+ */
 export const budget: BudgetRow[] = [
-  { id: 'property', kind: 'item', amount: 50000 },
-  { id: 'guestHouses', kind: 'item', amount: 108000 },
-  { id: 'weddingSetting', kind: 'item', amount: 2500 },
-  { id: 'entrance', kind: 'item', amount: 3000 },
-  { id: 'restaurants', kind: 'item', amount: 30000 },
-  { id: 'bathrooms', kind: 'item', amount: 10000 },
-  { id: 'digital', kind: 'item', amount: 12000, tipId: 'tip-digital' },
-  { id: 'contingency', kind: 'item', amount: 34500 },
-  { id: 'seed', kind: 'subtotal', amount: 250000, tipId: 'tip-subtotal' },
-  { id: 'transport', kind: 'pending' },
-  { id: 'company', kind: 'pending' },
+  { id: 'twoPersonLodges', kind: 'item', amount: 96000 }, // 6 × €16,000
+  { id: 'familyLodges', kind: 'item', amount: 186000 }, // 6 × €31,000
+  { id: 'restaurants', kind: 'item', amount: 35000 },
+  { id: 'bathrooms', kind: 'item', amount: 15000 },
+  { id: 'entrance', kind: 'item', amount: 6000 },
+  { id: 'weddingSetting', kind: 'item', amount: 5500 },
+  { id: 'guestSubtotal', kind: 'itemsSubtotal', amount: 343500 },
+  { id: 'property', kind: 'item', amount: 45000 },
+  { id: 'itemsSubtotal', kind: 'itemsSubtotal', amount: 388500 },
+  { id: 'transport', kind: 'item', amount: 25000 },
+  { id: 'costedScope', kind: 'subtotal', amount: 413500, tipId: 'tip-subtotal' },
+  { id: 'digital', kind: 'item', amount: 12000, currency: 'USD', tipId: 'tip-digital' },
+  { id: 'company', kind: 'pending', status: 'quote' },
+  { id: 'permits', kind: 'pending', status: 'quote' },
+  { id: 'pools', kind: 'pending', status: 'quote' },
+  { id: 'operating', kind: 'pending', status: 'toBudget' },
   { id: 'total', kind: 'total' },
 ];
 

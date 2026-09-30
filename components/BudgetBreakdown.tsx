@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 export interface BudgetRowView {
   id: string;
-  kind: 'item' | 'subtotal' | 'pending' | 'total';
+  kind: 'item' | 'itemsSubtotal' | 'subtotal' | 'pending' | 'total';
   label: string;
   note?: string;
   value: string;
@@ -13,6 +13,7 @@ export interface BudgetRowView {
 
 const ROW_CLASS: Record<BudgetRowView['kind'], string> = {
   item: 'fund-row',
+  itemsSubtotal: 'fund-row fund-items-subtotal',
   subtotal: 'fund-row fund-subtotal',
   pending: 'fund-row fund-pending',
   total: 'fund-row fund-total',
@@ -54,12 +55,6 @@ export function BudgetBreakdown({ rows, infoButtonLabel }: { rows: BudgetRowView
           <div className={ROW_CLASS[row.kind]} key={row.id}>
             <dt>
               {row.label}
-              {row.note !== undefined && (
-                <>
-                  {' '}
-                  <span className="fund-note">{row.note}</span>
-                </>
-              )}
               {tip !== undefined && (
                 <>
                   {' '}
@@ -76,6 +71,12 @@ export function BudgetBreakdown({ rows, infoButtonLabel }: { rows: BudgetRowView
                   >
                     i
                   </button>
+                </>
+              )}
+              {row.note !== undefined && (
+                <>
+                  {' '}
+                  <span className="fund-note">{row.note}</span>
                 </>
               )}
             </dt>

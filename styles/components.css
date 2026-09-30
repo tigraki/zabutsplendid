@@ -319,6 +319,9 @@
 
 .fund-row.fund-subtotal dt, .fund-row.fund-subtotal dd{ color: var(--ink); font-weight: 600; }
 
+/* "Subtotal of items estimated so far": a plain row with strong text, not the tinted seed box */
+.fund-row.fund-items-subtotal dt, .fund-row.fund-items-subtotal dd{ color: var(--ink); font-weight: 600; }
+
 .fund-row.fund-pending dt, .fund-row.fund-pending dd{ font-style: italic; color: var(--ink-soft); }
 
 .fund-row.fund-total{ border-bottom: none; padding-top: var(--space-100); }

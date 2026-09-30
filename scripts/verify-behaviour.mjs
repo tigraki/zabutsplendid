@@ -13,7 +13,7 @@
  *   lang    language switcher from every page to both other languages lands on the same page
  *   tips    fundraising (i) popovers: click, switch, toggle, outside click, Escape, hover
  *   signup  every Fillout button points at the current form for its language and opens it
- *   copy    copy fixes made after the port are on the pages
+ *   copy    copy fixes made after the port are on the pages; budget figures and sums
  * Set CHROMIUM_PATH to use an already-installed Chromium.
  */
 import { chromium } from 'playwright';
@@ -306,6 +306,26 @@ if (PARTS.includes('copy')) {
   for (const [p, t] of [['/it/story', 'Un soggiorno più significativo · Zabut the Splendid'], ['/tr/story', 'Daha anlamlı bir konaklama · Zabut the Splendid']]) {
     await page.goto(SITE + p);
     check(`${p} <title> "${t}"`, (await page.title()) === t, await page.title());
+  }
+  // fundraising budget: figures per language, and the sums add up
+  const BUDGET = {
+    en: ['€96,000', '€186,000', '€35,000', '€15,000', '€6,000', '€5,500', '€343,500', '€45,000', '€388,500', '€25,000', '€413,500', 'US$12,000', 'Quote pending', 'Quote pending', 'Quote pending', 'To be budgeted', 'To be confirmed'],
+    it: ['€96.000', '€186.000', '€35.000', '€15.000', '€6.000', '€5.500', '€343.500', '€45.000', '€388.500', '€25.000', '€413.500', 'US$12.000', 'Preventivo in attesa', 'Preventivo in attesa', 'Preventivo in attesa', 'Da mettere a budget', 'Da confermare'],
+    tr: ['96.000 €', '186.000 €', '35.000 €', '15.000 €', '6.000 €', '5.500 €', '343.500 €', '45.000 €', '388.500 €', '25.000 €', '413.500 €', '12.000 US$', 'Teklif bekleniyor', 'Teklif bekleniyor', 'Teklif bekleniyor', 'Bütçelenecek', 'Netleşecek'],
+  };
+  for (const lang of LANGS) {
+    await page.goto(SITE + path(lang, '/fundraising'));
+    const values = await page.$$eval('.fund-row > dd:not(.tip)', (dds) => dds.map((d) => d.textContent.trim()));
+    check(`${lang} budget figures`, JSON.stringify(values) === JSON.stringify(BUDGET[lang]), values.join(' | '));
+    const n = values.map((v) => Number(v.replace(/[^0-9]/g, '')));
+    // same distribution as the pitch deck's "Funding & Use of Funds" slide
+    const guestOk = n.slice(0, 6).reduce((a, b) => a + b, 0) === n[6] && n[6] === 343500;
+    const propOk = n[6] + n[7] === n[8] && n[8] === 388500;
+    const scopeOk = n[8] + n[9] === n[10] && n[10] === 413500;
+    check(`${lang} budget sums: lodges + shared = 343,500; + property = 388,500; + transport = 413,500`, guestOk && propOk && scopeOk);
+    const sub = page.locator('.fund-row.fund-items-subtotal');
+    check(`${lang} subtotal rows are plain rows with strong text`, (await sub.count()) === 2 &&
+      (await sub.evaluateAll((rows) => rows.every((r) => getComputedStyle(r.querySelector('dt')).fontWeight === '600' && getComputedStyle(r).backgroundColor === 'rgba(0, 0, 0, 0)'))));
   }
   for (const p of ['/', '/it', '/tr']) {
     await page.goto(SITE + p);

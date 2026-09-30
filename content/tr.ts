@@ -92,20 +92,13 @@ export const tr: SiteContent = {
       budget: {
         title: "Bütçeye ilk bakış",
         rows: {
-          property: {
-            label: "Mülk alımı",
+          twoPersonLodges: {
+            label: "Altı iki kişilik ev",
+            note: "6 × 16.000 €",
           },
-          guestHouses: {
-            label: "On iki ahşap misafir evi",
-            note: "Her biri tahmini 9.000 €",
-          },
-          weddingSetting: {
-            label: "Düğün alanı",
-            note: "Doğal taş, ahşap ve yeniden kullanılabilir dekoratif malzemeler",
-          },
-          entrance: {
-            label: "Giriş ve seçili yürüyüş yolları",
-            note: "Taş, çakıl ve peyzaj malzemeleri",
+          familyLodges: {
+            label: "Altı aile evi",
+            note: "6 × 31.000 €",
           },
           restaurants: {
             label: "İki restoran konsepti",
@@ -114,33 +107,61 @@ export const tr: SiteContent = {
           bathrooms: {
             label: "Banyo ve tuvalet yenilemeleri",
           },
-          digital: {
-            label: "Web sitesi, marka varlıkları ve açılış öncesi dijital pazarlama",
-            tip: "Dijital lansman hazırlığı; web sitesi tasarımı ve kurulumu, alan adı ve barındırma, sosyal medya lansmanı ve marka hikâyesi, logo ve marka kitabı için üretime hazır vektör dosyaları ile yapay zekâ destekli yaklaşık 9–12 konsept görseli kapsar. Bu görseller önerilen tasarımı gösterecek ve alanlar inşa edilene kadar konsept olarak belirtilecektir.",
+          entrance: {
+            label: "Giriş ve seçili yürüyüş yolları",
+            note: "Taş, çakıl ve peyzaj malzemeleri",
           },
-          contingency: {
-            label: "Beklenmedik giderler payı",
-            note: "Öngörülemeyen giderler için pay; yukarıdaki kalemlerin yaklaşık %16'sı",
+          weddingSetting: {
+            label: "Düğün alanı",
+            note: "Doğal taş, ahşap ve yeniden kullanılabilir dekoratif malzemeler",
           },
-          seed: {
-            label: "Tohum yatırımı",
-            tip: "Tohum yatırımı, şu ana kadar tahmin edilen kalemleri ve beklenmedik giderler için bir payı kapsar. Zabut'un açılışının toplam maliyeti değildir. Mülkün koşullarını, teknik gereklilikleri, taşıma planını ve tedarikçi tekliflerini netleştirdikten sonra finansman hedefini güncelleyeceğiz.",
+          guestSubtotal: {
+            label: "Misafir evleri ve ortak alanlar",
+          },
+          property: {
+            label: "Mülk için ilk ödeme payı",
+            note: "Satın alma bedelinin tamamı değildir; ileriki kirala-satın al ödemeleri ayrıca hesaplanıyor",
+          },
+          itemsSubtotal: {
+            label: "Mülk, evler ve ortak alanlar",
           },
           transport: {
             label: "Malzemelerin Türkiye'den Sicilya'ya taşınması",
           },
+          costedScope: {
+            label: "Ön maliyet kapsamı",
+            tip: "İlk bütçemiz; mülk için öngörülen giriş ödemesini, on iki ahşap misafir evini, ortak konaklama alanlarını ve malzemelerin Türkiye'den Sicilya'ya taşınmasını kapsar. Toplam finansman ihtiyacı, kalan giderler ve beklenmedik giderler payı bütçelendiğinde netleşecek.",
+          },
+          digital: {
+            label: "Web sitesi, marka varlıkları ve açılış öncesi dijital pazarlama",
+            note: "Para birimi netleşecek",
+            tip: "Dijital lansman hazırlığı; web sitesi tasarımı ve kurulumu, alan adı ve barındırma, sosyal medya lansmanı ve marka hikâyesi, logo ve marka kitabı için üretime hazır vektör dosyaları ile yapay zekâ destekli yaklaşık 9–12 konsept görseli kapsar. Bu görseller önerilen tasarımı gösterecek ve alanlar inşa edilene kadar konsept olarak belirtilecektir.",
+          },
           company: {
             label: "İtalya'da şirket kuruluşu ve danışmanlık ücretleri",
+          },
+          permits: {
+            label: "İzinler, altyapı ve kurulum",
+          },
+          pools: {
+            label: "İki özel havuz",
+          },
+          operating: {
+            label: "Ekipman, vergiler, açılış öncesi personel, işletme sermayesi ve beklenmedik giderler payı",
           },
           total: {
             label: "Toplam finansman hedefi",
           },
         },
         pendingValue: "Teklif bekleniyor",
+        toBudgetValue: "Bütçelenecek",
         totalValue: "Netleşecek",
         infoButtonLabel: "Daha fazla bilgi",
         currency: {
-          symbol: "€",
+          symbols: {
+            EUR: "€",
+            USD: "US$",
+          },
           position: "after",
           groupSeparator: ".",
         },
