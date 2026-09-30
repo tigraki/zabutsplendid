@@ -98,7 +98,7 @@ export type BudgetRow =
 
 /**
  * Fundraising budget, in display order. Mirrors the "Funding & Use of Funds" slide of the
- * investor pitch deck (preliminary costed scope €413,500, plus US$12,000 for brand,
+ * investor pitch deck (preliminary costed scope €413,500, plus €12,000 for brand,
  * website and pre-opening marketing). Items must add up; scripts/verify-behaviour.mjs checks it.
  */
 export const budget: BudgetRow[] = [
@@ -113,7 +113,7 @@ export const budget: BudgetRow[] = [
   { id: 'itemsSubtotal', kind: 'itemsSubtotal', amount: 388500 },
   { id: 'transport', kind: 'item', amount: 25000 },
   { id: 'costedScope', kind: 'subtotal', amount: 413500, tipId: 'tip-subtotal' },
-  { id: 'digital', kind: 'item', amount: 12000, currency: 'USD', tipId: 'tip-digital' },
+  { id: 'digital', kind: 'item', amount: 12000, tipId: 'tip-digital' },
   { id: 'company', kind: 'pending', status: 'quote' },
   { id: 'permits', kind: 'pending', status: 'quote' },
   { id: 'pools', kind: 'pending', status: 'quote' },

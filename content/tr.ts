@@ -134,7 +134,6 @@ export const tr: SiteContent = {
           },
           digital: {
             label: "Web sitesi, marka varlıkları ve açılış öncesi dijital pazarlama",
-            note: "Para birimi netleşecek",
             tip: "Dijital lansman hazırlığı; web sitesi tasarımı ve kurulumu, alan adı ve barındırma, sosyal medya lansmanı ve marka hikâyesi, logo ve marka kitabı için üretime hazır vektör dosyaları ile yapay zekâ destekli yaklaşık 9–12 konsept görseli kapsar. Bu görseller önerilen tasarımı gösterecek ve alanlar inşa edilene kadar konsept olarak belirtilecektir.",
           },
           company: {

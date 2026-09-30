@@ -309,9 +309,9 @@ if (PARTS.includes('copy')) {
   }
   // fundraising budget: figures per language, and the sums add up
   const BUDGET = {
-    en: ['€96,000', '€186,000', '€35,000', '€15,000', '€6,000', '€5,500', '€343,500', '€45,000', '€388,500', '€25,000', '€413,500', 'US$12,000', 'Quote pending', 'Quote pending', 'Quote pending', 'To be budgeted', 'To be confirmed'],
-    it: ['€96.000', '€186.000', '€35.000', '€15.000', '€6.000', '€5.500', '€343.500', '€45.000', '€388.500', '€25.000', '€413.500', 'US$12.000', 'Preventivo in attesa', 'Preventivo in attesa', 'Preventivo in attesa', 'Da mettere a budget', 'Da confermare'],
-    tr: ['96.000 €', '186.000 €', '35.000 €', '15.000 €', '6.000 €', '5.500 €', '343.500 €', '45.000 €', '388.500 €', '25.000 €', '413.500 €', '12.000 US$', 'Teklif bekleniyor', 'Teklif bekleniyor', 'Teklif bekleniyor', 'Bütçelenecek', 'Netleşecek'],
+    en: ['€96,000', '€186,000', '€35,000', '€15,000', '€6,000', '€5,500', '€343,500', '€45,000', '€388,500', '€25,000', '€413,500', '€12,000', 'Quote pending', 'Quote pending', 'Quote pending', 'To be budgeted', 'To be confirmed'],
+    it: ['€96.000', '€186.000', '€35.000', '€15.000', '€6.000', '€5.500', '€343.500', '€45.000', '€388.500', '€25.000', '€413.500', '€12.000', 'Preventivo in attesa', 'Preventivo in attesa', 'Preventivo in attesa', 'Da mettere a budget', 'Da confermare'],
+    tr: ['96.000 €', '186.000 €', '35.000 €', '15.000 €', '6.000 €', '5.500 €', '343.500 €', '45.000 €', '388.500 €', '25.000 €', '413.500 €', '12.000 €', 'Teklif bekleniyor', 'Teklif bekleniyor', 'Teklif bekleniyor', 'Bütçelenecek', 'Netleşecek'],
   };
   for (const lang of LANGS) {
     await page.goto(SITE + path(lang, '/fundraising'));

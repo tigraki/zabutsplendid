@@ -134,7 +134,6 @@ export const en: SiteContent = {
           },
           digital: {
             label: "Website, brand assets and pre-opening digital marketing",
-            note: "Currency to be confirmed",
             tip: "Digital launch preparation includes website design and setup, domain and hosting, the social media launch and brand story, production-ready vector files for the logo and brand book, and approximately 9–12 AI-assisted concept visuals. These visuals will illustrate the proposed design and will be identified as concepts until the spaces are built.",
           },
           company: {

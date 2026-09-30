@@ -134,7 +134,6 @@ export const it: SiteContent = {
           },
           digital: {
             label: "Sito web, identità di marca e marketing digitale pre-apertura",
-            note: "Valuta da confermare",
             tip: "La preparazione del lancio digitale comprende progettazione e realizzazione del sito web, dominio e hosting, lancio sui social media e racconto del brand, file vettoriali pronti per la produzione di logo e manuale del brand, e circa 9–12 immagini concettuali realizzate con l'aiuto dell'IA. Queste immagini illustreranno il progetto proposto e saranno indicate come concept finché gli spazi non saranno costruiti.",
           },
           company: {

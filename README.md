@@ -266,7 +266,7 @@ build. It covered all 27 pages (9 pages × 3 languages) at 375, 768 and 1440 px
     (53–66px) lower. Nothing else on those pages moved.
   - The fundraising budget, updated on 30 September 2026 to match the "Funding & Use of
     Funds" slide of the investor pitch deck (preliminary costed scope €413,500, plus
-    US$12,000 for brand, website and pre-opening marketing). Its rows are not compared
+    €12,000 for brand, website and pre-opening marketing). Its rows are not compared
     with the reference; the taller table moves everything below it down, which is
     reported as intended. `verify-behaviour.mjs --part=copy` checks the figures and that
     they add up.
