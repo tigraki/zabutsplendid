@@ -1175,16 +1175,15 @@ img.spark{ height: auto; }
 .vision-list{ margin-top: var(--space-180); }
 .vision-list .label{ margin-bottom: var(--space-060); }
 .vision-list ul{ list-style: none; margin: 0; padding: 0; }
-.vision-list li{ padding-block: var(--space-060); border-top: var(--border-hair) solid var(--line-faint); font-size: var(--fs-105); line-height: var(--lh-155); }
-.vision-list li:last-child{ border-bottom: var(--border-hair) solid var(--line-faint); }
+.vision-list li{ position: relative; padding: var(--space-020) 0 var(--space-020) var(--space-125); font-size: var(--fs-105); line-height: var(--lh-155); color: var(--ink-soft); }
+.vision-list li::before{ content: ""; position: absolute; left: 0; top: 0.85em; width: var(--space-060); border-top: var(--border-hair) solid var(--accent); }
 
 /* images */
 .vision-gallery{ display: grid; gap: var(--fluid-150-300); max-width: var(--size-6000); margin: var(--fluid-250-350) auto 0; }
-.vision-grid{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--fluid-150-300) var(--space-125); }
-.vision-figure .illustration{ width: 100%; height: auto; margin: 0; }
+.vision-gallery--hero{ margin-top: 0; }
+/* every single image: same width as the slider, same 16:9 shape */
+.vision-figure .illustration{ width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; margin: 0; }
 .vision-figure .caption{ margin-bottom: 0; }
-.vision-figure--measure{ width: 100%; max-width: var(--measure); margin-inline: auto; }
-.wrap > .vision-figure--hero{ max-width: none; }
 .vision-frame{ position: relative; }
 .vision-concept{
   position: absolute; left: var(--space-075); bottom: var(--space-075); pointer-events: none;
@@ -1192,8 +1191,6 @@ img.spark{ height: auto; }
   font-family: var(--serif-body); font-size: var(--fs-064); font-weight: 600; letter-spacing: var(--track-200);
   text-transform: uppercase; line-height: var(--lh-155);
 }
-@media (min-width: 55rem){ .vision-grid--3{ grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (max-width: 36rem){ .vision-grid{ grid-template-columns: 1fr; } }
 
 /* experiences table */
 .vision-table{ width: 100%; max-width: var(--size-6000); margin: var(--fluid-250-350) auto 0; border-collapse: collapse; text-align: left; }
@@ -1214,3 +1211,16 @@ img.spark{ height: auto; }
 .vision-verse.pull-quote{ max-width: var(--measure); margin: var(--space-180) auto var(--space-250); }
 .vision-verse.pull-quote p{ font-size: var(--fs-h3); line-height: var(--lh-135); max-width: none; }
 .vision-section--journey .story-subhead{ margin-top: 0; }
+
+/* Slider / Tiles switch (Nido, Dimora): the prototype's .room-* classes above, with real images */
+.room-slide.has-image::after, .room-tile.has-image::after{ content: none; }
+.room-slider.large{ margin-top: 0; }
+.room-slider:focus-visible{ outline-offset: var(--space-020); }
+.room-slide.has-image, .room-tile.has-image{ overflow: hidden; background: var(--mix-ink-06-bg); }
+.slide-nav{ z-index: 2; }
+.slide-dots{ z-index: 2; }
+.room-slider .vision-concept{ bottom: var(--space-180); }
+.vision-switch-caption{ min-height: 1lh; margin: var(--space-070) 0 0; }
+.vision-sr{ position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (min-width: 55rem){ .room-tiles{ gap: var(--space-125); } }
+

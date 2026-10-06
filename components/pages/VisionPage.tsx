@@ -5,38 +5,22 @@ import { signupUrl } from '@/content/shared';
 import { vision, type VisionBlock, type VisionImage, type VisionLink, type VisionList, type VisionSection } from '@/content/vision';
 import { pagePath } from '@/lib/routes';
 import { Spark } from '../Spark';
+import { VisionSwitchGallery } from '../VisionSwitchGallery';
 
 /*
  * Vision page. Every word and image comes from content/vision.ts.
  *
- * Image layout rules (no per-image layout fields, so the data stays CMS-shaped):
- * - large renders (≥ 1500px wide): the first one runs wide; one more runs wide too,
- *   several more sit in a grid (three columns on desktop when there are three or more);
- * - smaller concept visuals reused from the site sit at the reading width, or in a grid
- *   when there are several.
+ * Image layout (no per-image layout fields, so the data stays CMS-shaped):
+ * - three or more images: Slider / Tiles switch (VisionSwitchGallery), slider first;
+ * - otherwise each image runs at the same width and shape: 60rem wide, cropped to 16:9,
+ *   matching the slider.
  */
 
-const LARGE = 1500;
-const SIZES = {
-  hero: '(max-width: 73.75rem) calc(100vw - 2.5rem), 1116px',
-  wide: '(max-width: 64rem) calc(100vw - 2.5rem), 960px',
-  grid: '(max-width: 36rem) calc(100vw - 2.5rem), (max-width: 55rem) 46vw, 310px',
-  measure: '(max-width: 40rem) calc(100vw - 2.5rem), 576px',
-};
+const SIZES = '(max-width: 64rem) calc(100vw - 2.5rem), 960px';
 
-function VisionFigure({
-  image,
-  lang,
-  variant,
-  priority = false,
-}: {
-  image: VisionImage;
-  lang: Lang;
-  variant: keyof typeof SIZES;
-  priority?: boolean;
-}) {
+function VisionFigure({ image, lang, priority = false }: { image: VisionImage; lang: Lang; priority?: boolean }) {
   return (
-    <figure className={`figure vision-figure vision-figure--${variant}`}>
+    <figure className="figure vision-figure">
       <div className="vision-frame">
         <Image
           className="illustration"
@@ -44,10 +28,9 @@ function VisionFigure({
           width={image.width}
           height={image.height}
           alt={image.alt[lang]}
-          sizes={SIZES[variant]}
+          sizes={SIZES}
           preload={priority}
           loading={priority ? 'eager' : 'lazy'}
-          style={{ aspectRatio: `${image.width} / ${image.height}` }}
         />
         {image.concept && <span className="vision-concept">{vision.ui.conceptLabel[lang]}</span>}
       </div>
@@ -56,30 +39,36 @@ function VisionFigure({
   );
 }
 
+/** Galleries of this many images or more get the Slider / Tiles switch. */
+const SWITCH_FROM = 3;
+
 function Gallery({ images, lang }: { images: VisionImage[]; lang: Lang }) {
   if (images.length === 0) return null;
-  const large = images.filter((i) => i.width >= LARGE);
-  const small = images.filter((i) => i.width < LARGE);
-  const [first, ...rest] = large;
+  if (images.length >= SWITCH_FROM) {
+    const g = vision.ui.gallery;
+    return (
+      <div className="vision-gallery">
+        <VisionSwitchGallery
+          images={images.map((i) => ({ src: i.src, alt: i.alt[lang], caption: i.caption?.[lang], concept: i.concept }))}
+          labels={{
+            group: g.group[lang],
+            slider: g.slider[lang],
+            tiles: g.tiles[lang],
+            previous: g.previous[lang],
+            next: g.next[lang],
+            viewInSlider: g.viewInSlider[lang],
+            position: g.position[lang],
+            concept: vision.ui.conceptLabel[lang],
+          }}
+        />
+      </div>
+    );
+  }
   return (
     <div className="vision-gallery">
-      {first && <VisionFigure image={first} lang={lang} variant="wide" />}
-      {rest.length === 1 && <VisionFigure image={rest[0]!} lang={lang} variant="wide" />}
-      {rest.length > 1 && (
-        <div className={`vision-grid${rest.length >= 3 ? ' vision-grid--3' : ''}`}>
-          {rest.map((image) => (
-            <VisionFigure key={image.src} image={image} lang={lang} variant="grid" />
-          ))}
-        </div>
-      )}
-      {small.length === 1 && <VisionFigure image={small[0]!} lang={lang} variant="measure" />}
-      {small.length > 1 && (
-        <div className="vision-grid">
-          {small.map((image) => (
-            <VisionFigure key={image.src} image={image} lang={lang} variant="grid" />
-          ))}
-        </div>
-      )}
+      {images.map((image) => (
+        <VisionFigure key={image.src} image={image} lang={lang} />
+      ))}
     </div>
   );
 }
@@ -218,7 +207,9 @@ export function VisionPage({ lang }: { lang: Lang }) {
         <p>{intro.lead[lang]}</p>
       </div>
       <div className="wrap">
-        <VisionFigure image={intro.hero} lang={lang} variant="hero" priority />
+        <div className="vision-gallery vision-gallery--hero">
+          <VisionFigure image={intro.hero} lang={lang} priority />
+        </div>
         <div className="body-copy vision-intro-copy">
           {intro.text[lang].map((p) => (
             <p key={p}>{p}</p>

@@ -225,6 +225,10 @@ nav and the footer as Vision / Visione / Vizyon.
   converted; `next/image` serves sized WebP/AVIF. `_incoming/` holds the originals and is
   git-ignored. Sections with no render reuse concept visuals already on the site. Every
   image has `concept: true` and shows a small "Concept" label.
+- **Image layout:** galleries of three or more images (Nido, Dimora) get the prototype's
+  Slider / Tiles switch (`components/VisionSwitchGallery.tsx`, slider first; picking a tile
+  opens it in the slider; arrows, dots, ←/→ keys and swipe). Every other image runs at the
+  same size as the slider: 60rem wide, cropped to 16:9.
 - **Layout:** built from the site's existing classes; the few new rules are at the end of
   `styles/components.css` under "Vision page", using tokens only (one new token:
   `--size-6000`).

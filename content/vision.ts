@@ -88,7 +88,21 @@ export interface VisionPage {
     images: VisionImage[];
   };
   sections: VisionSection[];
-  ui: { conceptLabel: Localized };
+  ui: {
+    conceptLabel: Localized;
+    /** Slider / Tiles switch, used for galleries of three or more images. */
+    gallery: {
+      group: Localized;
+      slider: Localized;
+      tiles: Localized;
+      previous: Localized;
+      next: Localized;
+      /** "{n}" is replaced by the image number. */
+      viewInSlider: Localized;
+      /** Read out by screen readers; "{n}" and "{total}" are replaced. */
+      position: Localized;
+    };
+  };
 }
 
 const V = '/vision';
@@ -202,25 +216,25 @@ export const vision: VisionPage = {
         title: { en: 'Planned spaces', it: 'Spazi previsti', tr: 'Planlanan alanlar' },
         items: {
           en: [
-            'Reception and welcoming lobby.',
-            'A quiet lounge with a library wall.',
-            'Café and bar.',
-            'Veranda seating.',
-            'Our restaurant, bringing two culinary cultures to one table.',
+            'Reception and welcoming lobby',
+            'A quiet lounge with a library wall',
+            'Café and bar',
+            'Veranda seating',
+            'Our restaurant, bringing two culinary cultures to one table',
           ],
           it: [
-            'Reception e lobby di accoglienza.',
-            'Una lounge tranquilla con una parete-biblioteca.',
-            'Caffè e bar.',
-            'Sedute in veranda.',
-            'Il nostro ristorante, che porta due culture culinarie alla stessa tavola.',
+            'Reception e lobby di accoglienza',
+            'Una lounge tranquilla con una parete-biblioteca',
+            'Caffè e bar',
+            'Sedute in veranda',
+            'Il nostro ristorante, che porta due culture culinarie alla stessa tavola',
           ],
           tr: [
-            'Resepsiyon ve karşılama lobisi.',
-            'Kütüphane duvarıyla sakin bir lounge.',
-            'Kafe ve bar.',
-            'Veranda oturma alanı.',
-            'İki mutfak kültürünü aynı sofrada buluşturan restoranımız.',
+            'Resepsiyon ve karşılama lobisi',
+            'Kütüphane duvarıyla sakin bir lounge',
+            'Kafe ve bar',
+            'Veranda oturma alanı',
+            'İki mutfak kültürünü aynı sofrada buluşturan restoranımız',
           ],
         },
       },
@@ -300,28 +314,28 @@ export const vision: VisionPage = {
             title: { en: 'Planned features', it: 'Dotazioni previste', tr: 'Planlanan özellikler' },
             items: {
               en: [
-                'Accommodation for two.',
-                'Private bathroom with a shower and bathtub.',
-                'Wardrobe.',
-                'Minibar and coffee machine.',
-                'Garden with a veranda and outdoor seating.',
-                'Sun loungers and a parasol.',
+                'Accommodation for two',
+                'Private bathroom with a shower and bathtub',
+                'Wardrobe',
+                'Minibar and coffee machine',
+                'Garden with a veranda and outdoor seating',
+                'Sun loungers and a parasol',
               ],
               it: [
-                'Alloggio per due persone.',
-                'Bagno privato con doccia e vasca.',
-                'Armadio.',
-                'Minibar e macchina del caffè.',
-                'Giardino con veranda e sedute all’aperto.',
-                'Lettini e ombrellone.',
+                'Alloggio per due persone',
+                'Bagno privato con doccia e vasca',
+                'Armadio',
+                'Minibar e macchina del caffè',
+                'Giardino con veranda e sedute all’aperto',
+                'Lettini e ombrellone',
               ],
               tr: [
-                'İki kişilik konaklama.',
-                'Duş ve küvet içeren özel banyo.',
-                'Gardırop.',
-                'Minibar ve kahve makinesi.',
-                'Veranda ve açık hava oturma alanı bulunan bahçe.',
-                'Şezlonglar ve şemsiye.',
+                'İki kişilik konaklama',
+                'Duş ve küvet içeren özel banyo',
+                'Gardırop',
+                'Minibar ve kahve makinesi',
+                'Veranda ve açık hava oturma alanı bulunan bahçe',
+                'Şezlonglar ve şemsiye',
               ],
             },
           },
@@ -429,9 +443,9 @@ export const vision: VisionPage = {
           list: {
             title: { en: 'Additional features', it: 'Dotazioni aggiuntive', tr: 'Ek özellikler' },
             items: {
-              en: ['Private outdoor Jacuzzi.', 'Garden bar area.'],
-              it: ['Jacuzzi privata all’aperto.', 'Angolo bar in giardino.'],
-              tr: ['Özel açık hava jakuzisi.', 'Bahçe bar alanı.'],
+              en: ['Private outdoor Jacuzzi', 'Garden bar area'],
+              it: ['Jacuzzi privata all’aperto', 'Angolo bar in giardino'],
+              tr: ['Özel açık hava jakuzisi', 'Bahçe bar alanı'],
             },
           },
           images: [
@@ -474,25 +488,25 @@ export const vision: VisionPage = {
             title: { en: 'Planned features', it: 'Dotazioni previste', tr: 'Planlanan özellikler' },
             items: {
               en: [
-                'Three bedrooms, accommodating up to five guests.',
-                'Kitchenette with a microwave and coffee machine.',
-                'Private bathroom with a spacious shower.',
-                'Private garden with outdoor seating.',
-                'Parasol and barbecue.',
+                'Three bedrooms, accommodating up to five guests',
+                'Kitchenette with a microwave and coffee machine',
+                'Private bathroom with a spacious shower',
+                'Private garden with outdoor seating',
+                'Parasol and barbecue',
               ],
               it: [
-                'Tre camere da letto, fino a cinque ospiti.',
-                'Angolo cottura con microonde e macchina del caffè.',
-                'Bagno privato con un’ampia doccia.',
-                'Giardino privato con sedute all’aperto.',
-                'Ombrellone e barbecue.',
+                'Tre camere da letto, fino a cinque ospiti',
+                'Angolo cottura con microonde e macchina del caffè',
+                'Bagno privato con un’ampia doccia',
+                'Giardino privato con sedute all’aperto',
+                'Ombrellone e barbecue',
               ],
               tr: [
-                'Toplam beş kişiye kadar konaklama sunan üç yatak odası.',
-                'Mikrodalga ve kahve makinesi bulunan mini mutfak.',
-                'Geniş duş alanına sahip özel banyo.',
-                'Açık hava oturma grubu bulunan özel bahçe.',
-                'Şemsiye ve barbekü.',
+                'Toplam beş kişiye kadar konaklama sunan üç yatak odası',
+                'Mikrodalga ve kahve makinesi bulunan mini mutfak',
+                'Geniş duş alanına sahip özel banyo',
+                'Açık hava oturma grubu bulunan özel bahçe',
+                'Şemsiye ve barbekü',
               ],
             },
           },
@@ -612,9 +626,9 @@ export const vision: VisionPage = {
           list: {
             title: { en: 'Additional features', it: 'Dotazioni aggiuntive', tr: 'Ek özellikler' },
             items: {
-              en: ['Private 3 × 6 m swimming pool.', 'Garden bar area.'],
-              it: ['Piscina privata di 3 × 6 m.', 'Angolo bar in giardino.'],
-              tr: ['Özel 3 × 6 m yüzme havuzu.', 'Bahçe bar alanı.'],
+              en: ['Private 3 × 6 m swimming pool', 'Garden bar area'],
+              it: ['Piscina privata di 3 × 6 m', 'Angolo bar in giardino'],
+              tr: ['Özel 3 × 6 m yüzme havuzu', 'Bahçe bar alanı'],
             },
           },
           images: [
@@ -1136,5 +1150,22 @@ export const vision: VisionPage = {
 
   ui: {
     conceptLabel: { en: 'Concept', it: 'Concept', tr: 'Konsept' }, // TR: needs native review
+    gallery: {
+      group: { en: 'Gallery view', it: 'Vista della galleria', tr: 'Galeri görünümü' }, // TR: needs native review
+      slider: { en: 'Slider', it: 'Slider', tr: 'Slayt' }, // TR: needs native review
+      tiles: { en: 'Tiles', it: 'Griglia', tr: 'Izgara' }, // TR: needs native review
+      previous: { en: 'Previous image', it: 'Immagine precedente', tr: 'Önceki görsel' }, // TR: needs native review
+      next: { en: 'Next image', it: 'Immagine successiva', tr: 'Sonraki görsel' }, // TR: needs native review
+      viewInSlider: {
+        en: 'View image {n} in the slider',
+        it: 'Mostra l’immagine {n} nello slider',
+        tr: '{n}. görseli slaytta göster', // TR: needs native review
+      },
+      position: {
+        en: 'Image {n} of {total}',
+        it: 'Immagine {n} di {total}',
+        tr: 'Görsel {n} / {total}', // TR: needs native review
+      },
+    },
   },
 };
