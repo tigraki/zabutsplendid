@@ -1223,4 +1223,10 @@ img.spark{ height: auto; }
 .vision-switch-caption{ min-height: 1lh; margin: var(--space-070) 0 0; }
 .vision-sr{ position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @media (min-width: 55rem){ .room-tiles{ gap: var(--space-125); } }
-
+.vision-switch-bar{ display: flex; align-items: center; gap: var(--space-100); margin-bottom: var(--space-100); }
+.vision-switch-bar .view-toggle{ margin: 0 0 0 auto; }
+.vision-switch-hint{ margin: 0; }
+.hint-touch{ display: none; }
+@media (hover: none){ .hint-pointer{ display: none; } .hint-touch{ display: inline; } }
+/* smaller Concept tag on the small tiles */
+.room-tile .vision-concept{ left: var(--space-040); bottom: var(--space-040); padding: 0 var(--space-040); font-size: var(--fs-062); letter-spacing: var(--track-150); }

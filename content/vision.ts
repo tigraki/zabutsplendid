@@ -101,6 +101,9 @@ export interface VisionPage {
       viewInSlider: Localized;
       /** Read out by screen readers; "{n}" and "{total}" are replaced. */
       position: Localized;
+      /** Shown left of the switch in Tiles view: with a mouse, and on touch screens. */
+      hint: Localized;
+      hintTouch: Localized;
     };
   };
 }
@@ -153,7 +156,7 @@ export const vision: VisionPage = {
       tr: 'Zabut, geliştirme aşamasında bir projedir. Bu görselleştirmeler tasarım yaklaşımımızı yansıtır. Yerleşimler, olanaklar ve kapasiteler; teknik değerlendirmelere, izinlere ve nihai tasarıma bağlı olarak değişebilir.',
     },
     hero: {
-      src: `${V}/01-site-aerial.png`,
+      src: `${V}/01-site-aerial.jpg`,
       width: 1671,
       height: 941,
       concept: true,
@@ -165,7 +168,7 @@ export const vision: VisionPage = {
     },
     images: [
       {
-        src: `${V}/02-site-layout.png`,
+        src: `${V}/02-site-layout.jpg`,
         width: 1536,
         height: 1024,
         concept: true,
@@ -240,18 +243,18 @@ export const vision: VisionPage = {
       },
       images: [
         {
-          src: `${V}/03-soglia-veranda.png`,
+          src: `${V}/03-soglia-cover.jpg`,
           width: 1774,
           height: 887,
           concept: true,
           alt: {
-            en: 'Concept render of Soglia: the stone farmhouse with its long pergola veranda and the reception seen through open doors',
-            it: 'Render concettuale di Soglia: il casale in pietra con la lunga veranda sotto il pergolato e la reception vista dalle porte aperte',
-            tr: 'Soglia’nın konsept görseli: uzun pergolalı verandasıyla taş çiftlik evi ve açık kapılardan görünen resepsiyon', // TR: needs native review
+            en: 'Concept render of Soglia: the stone farmhouse with a tiled roof and lounge seating under the pergola',
+            it: 'Render concettuale di Soglia: il casale in pietra con il tetto in coppi e i salotti sotto il pergolato',
+            tr: 'Soglia’nın konsept görseli: kiremit çatılı taş çiftlik evi ve pergola altındaki oturma alanı', // TR: needs native review
           },
         },
         {
-          src: `${V}/04-soglia-lobby.png`,
+          src: `${V}/04-soglia-lobby.jpg`,
           width: 1536,
           height: 1024,
           concept: true,
@@ -341,9 +344,9 @@ export const vision: VisionPage = {
           },
           images: [
             {
-              src: `${V}/05-nido-garden.png`,
-              width: 1672,
-              height: 941,
+              src: `${V}/05-nido-garden.jpg`,
+              width: 1600,
+              height: 900,
               concept: true,
               alt: {
                 en: 'Concept render of a Nido lodge with a timber-shingle façade, green roof and private garden with sun loungers',
@@ -352,7 +355,7 @@ export const vision: VisionPage = {
               },
             },
             {
-              src: `${V}/06-nido-veranda.png`,
+              src: `${V}/06-nido-veranda.jpg`,
               width: 1672,
               height: 941,
               concept: true,
@@ -364,7 +367,7 @@ export const vision: VisionPage = {
               caption: { en: 'Veranda', it: 'Veranda', tr: 'Veranda' },
             },
             {
-              src: `${V}/07-nido-living.png`,
+              src: `${V}/07-nido-living.jpg`,
               width: 1672,
               height: 941,
               concept: true,
@@ -376,19 +379,23 @@ export const vision: VisionPage = {
               caption: { en: 'Living area', it: 'Zona giorno', tr: 'Oturma alanı' }, // TR: needs native review
             },
             {
-              src: `${V}/08-nido-loft-bedroom.png`,
+              src: `${V}/08-nido-loft-living.jpg`,
               width: 1672,
               height: 941,
               concept: true,
               alt: {
-                en: 'Concept render of the Nido loft bedroom',
-                it: 'Render concettuale della camera sul soppalco di Nido',
-                tr: 'Nido’nun asma kattaki yatak odasının konsept görseli', // TR: needs native review
+                en: 'Concept render of the Nido sleeping loft above the living area, with the stairs, sofa and coffee corner',
+                it: 'Render concettuale del soppalco di Nido sopra la zona giorno, con la scala, il divano e l’angolo caffè',
+                tr: 'Nido’nun oturma alanının üzerindeki asma kat yatağı; merdiven, kanepe ve kahve köşesiyle konsept görsel', // TR: needs native review
               },
-              caption: { en: 'Sleeping loft', it: 'Camera sul soppalco', tr: 'Asma kat yatak odası' }, // TR: needs native review
+              caption: {
+                en: 'Sleeping loft above the living area',
+                it: 'Il soppalco sopra la zona giorno',
+                tr: 'Oturma alanının üzerindeki asma kat', // TR: needs native review
+              },
             },
             {
-              src: `${V}/09-nido-wardrobe-coffee.png`,
+              src: `${V}/09-nido-wardrobe-coffee.jpg`,
               width: 1672,
               height: 941,
               concept: true,
@@ -404,7 +411,7 @@ export const vision: VisionPage = {
               },
             },
             {
-              src: `${V}/10-nido-bathroom.png`,
+              src: `${V}/10-nido-bathroom.jpg`,
               width: 1672,
               height: 941,
               concept: true,
@@ -450,7 +457,7 @@ export const vision: VisionPage = {
           },
           images: [
             {
-              src: `${V}/11-nido-jacuzzi-garden.png`,
+              src: `${V}/11-nido-jacuzzi-garden.jpg`,
               width: 1536,
               height: 1024,
               concept: true,
@@ -512,7 +519,7 @@ export const vision: VisionPage = {
           },
           images: [
             {
-              src: `${V}/12-dimora-living.png`,
+              src: `${V}/12-dimora-living.jpg`,
               width: 1622,
               height: 970,
               concept: true,
@@ -523,7 +530,7 @@ export const vision: VisionPage = {
               },
             },
             {
-              src: `${V}/13-dimora-living-kitchenette.png`,
+              src: `${V}/13-dimora-living-kitchenette.jpg`,
               width: 1672,
               height: 941,
               concept: true,
@@ -539,7 +546,7 @@ export const vision: VisionPage = {
               },
             },
             {
-              src: `${V}/14-dimora-kitchenette.png`,
+              src: `${V}/14-dimora-kitchenette.jpg`,
               width: 1672,
               height: 941,
               concept: true,
@@ -551,7 +558,7 @@ export const vision: VisionPage = {
               caption: { en: 'Kitchenette', it: 'Angolo cottura', tr: 'Mini mutfak' },
             },
             {
-              src: `${V}/15-dimora-bedroom-1.png`,
+              src: `${V}/15-dimora-bedroom-1.jpg`,
               width: 1672,
               height: 941,
               concept: true,
@@ -563,7 +570,7 @@ export const vision: VisionPage = {
               caption: { en: 'Bedroom', it: 'Camera da letto', tr: 'Yatak odası' }, // TR: needs native review
             },
             {
-              src: `${V}/16-dimora-bedroom-2.png`,
+              src: `${V}/16-dimora-bedroom-2.jpg`,
               width: 1672,
               height: 941,
               concept: true,
@@ -575,7 +582,7 @@ export const vision: VisionPage = {
               caption: { en: 'Bedroom', it: 'Camera da letto', tr: 'Yatak odası' }, // TR: needs native review
             },
             {
-              src: `${V}/17-dimora-bedroom-3.png`,
+              src: `${V}/17-dimora-bedroom-3.jpg`,
               width: 1672,
               height: 941,
               concept: true,
@@ -587,7 +594,7 @@ export const vision: VisionPage = {
               caption: { en: 'Bedroom', it: 'Camera da letto', tr: 'Yatak odası' }, // TR: needs native review
             },
             {
-              src: `${V}/18-dimora-bathroom.png`,
+              src: `${V}/18-dimora-bathroom.jpg`,
               width: 1536,
               height: 1024,
               concept: true,
@@ -633,7 +640,7 @@ export const vision: VisionPage = {
           },
           images: [
             {
-              src: `${V}/19-dimora-pool-garden.png`,
+              src: `${V}/19-dimora-pool-garden.jpg`,
               width: 1672,
               height: 941,
               concept: true,
@@ -675,7 +682,7 @@ export const vision: VisionPage = {
       },
       images: [
         {
-          src: `${V}/20-restaurant-interior.png`,
+          src: `${V}/20-restaurant-interior.jpg`,
           width: 1672,
           height: 941,
           concept: true,
@@ -685,22 +692,6 @@ export const vision: VisionPage = {
             tr: 'Restoranın konsept görseli: taş duvarlar, ahşap tavan ve salonun ortasında uzanan Köprü Sofrası', // TR: needs native review
           },
           caption: { en: 'The Bridge Table', it: 'The Bridge Table', tr: 'Köprü Sofrası' },
-        },
-        {
-          src: `${V}/21-restaurant-pergola.png`,
-          width: 1774,
-          height: 887,
-          concept: true,
-          alt: {
-            en: 'Concept render of the stone farmhouse with tables under the pergola',
-            it: 'Render concettuale del casale in pietra con i tavoli sotto il pergolato',
-            tr: 'Pergola altında masalarıyla taş çiftlik evinin konsept görseli', // TR: needs native review
-          },
-          caption: {
-            en: 'Under the pergola',
-            it: 'Sotto il pergolato',
-            tr: 'Pergola altında', // TR: needs native review
-          },
         },
       ],
     },
@@ -735,7 +726,7 @@ export const vision: VisionPage = {
       },
       images: [
         {
-          src: `${V}/22-promessa-aerial.png`,
+          src: `${V}/22-promessa-aerial.jpg`,
           width: 1672,
           height: 941,
           concept: true,
@@ -1039,14 +1030,14 @@ export const vision: VisionPage = {
       },
       images: [
         {
-          src: '/images/exp-land.webp',
-          width: 840,
-          height: 560,
+          src: `${V}/24-bottega-wine-bar.jpg`,
+          width: 1536,
+          height: 1024,
           concept: true,
           alt: {
-            en: 'Concept visual of local growers and artisans in the village',
-            it: 'Immagine concettuale di coltivatori e artigiani locali nel paese',
-            tr: 'Kasabadaki yerel üreticilerin ve zanaatkârların konsept görseli',
+            en: 'Concept render of Bottega delle Radici: a wine-tasting bar under a timber canopy, with the Local Findings shop behind and the lake beyond',
+            it: 'Render concettuale di Bottega delle Radici: un banco di degustazione vini sotto una copertura in legno, con la bottega Local Findings alle spalle e il lago sullo sfondo',
+            tr: 'Bottega delle Radici’nin konsept görseli: ahşap çatı altında şarap tadım barı, arkada Local Findings dükkânı ve uzakta göl', // TR: needs native review
           },
         },
       ],
@@ -1082,7 +1073,7 @@ export const vision: VisionPage = {
       },
       images: [
         {
-          src: `${V}/23-walk-the-land-aerial.png`,
+          src: `${V}/23-walk-the-land-aerial.jpg`,
           width: 1672,
           height: 941,
           concept: true,
@@ -1165,6 +1156,16 @@ export const vision: VisionPage = {
         en: 'Image {n} of {total}',
         it: 'Immagine {n} di {total}',
         tr: 'Görsel {n} / {total}', // TR: needs native review
+      },
+      hint: {
+        en: 'Click an image to enlarge',
+        it: 'Clicca su un’immagine per ingrandirla',
+        tr: 'Büyütmek için bir görsele tıklayın', // TR: needs native review
+      },
+      hintTouch: {
+        en: 'Tap an image to enlarge',
+        it: 'Tocca un’immagine per ingrandirla',
+        tr: 'Büyütmek için bir görsele dokunun', // TR: needs native review
       },
     },
   },

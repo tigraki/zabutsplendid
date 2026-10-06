@@ -11,7 +11,7 @@ import { VisionSwitchGallery } from '../VisionSwitchGallery';
  * Vision page. Every word and image comes from content/vision.ts.
  *
  * Image layout (no per-image layout fields, so the data stays CMS-shaped):
- * - three or more images: Slider / Tiles switch (VisionSwitchGallery), slider first;
+ * - three or more images: Slider / Tiles switch (VisionSwitchGallery), tiles first;
  * - otherwise each image runs at the same width and shape: 60rem wide, cropped to 16:9,
  *   matching the slider.
  */
@@ -58,6 +58,8 @@ function Gallery({ images, lang }: { images: VisionImage[]; lang: Lang }) {
             next: g.next[lang],
             viewInSlider: g.viewInSlider[lang],
             position: g.position[lang],
+            hint: g.hint[lang],
+            hintTouch: g.hintTouch[lang],
             concept: vision.ui.conceptLabel[lang],
           }}
         />

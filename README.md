@@ -220,14 +220,16 @@ nav and the footer as Vision / Visione / Vizyon.
 - **Copy:** EN and TR are the founder's text, verbatim. IT was translated for the page.
   Alt text, captions, the nav label and the SEO description were written for the site; the
   Turkish versions of those lines are marked `// TR: needs native review`.
-- **Images:** renders in `public/vision/` (`01-site-aerial.png` …), copied from
-  `_incoming/vision/` with clean names. No file was over 3000px, so none was resized or
-  converted; `next/image` serves sized WebP/AVIF. `_incoming/` holds the originals and is
-  git-ignored. Sections with no render reuse concept visuals already on the site. Every
+- **Images:** renders in `public/vision/` (`01-site-aerial.jpg` …), made from
+  `_incoming/vision/` with clean names: the PNG renders converted to JPEG (quality 92,
+  no chroma subsampling) at their original pixel size, about 66MB down to 14MB. None was
+  resized. They are served as is (image optimization is off). `_incoming/` holds the
+  originals and is git-ignored. Sections with no render reuse concept visuals already on the site. Every
   image has `concept: true` and shows a small "Concept" label.
 - **Image layout:** galleries of three or more images (Nido, Dimora) get the prototype's
-  Slider / Tiles switch (`components/VisionSwitchGallery.tsx`, slider first; picking a tile
-  opens it in the slider; arrows, dots, ←/→ keys and swipe). Every other image runs at the
+  Slider / Tiles switch (`components/VisionSwitchGallery.tsx`). Tiles show first, with a
+  "Click an image to enlarge" hint ("Tap…" on touch screens); picking a tile opens it in the
+  slider (arrows, dots, ←/→ keys and swipe). Every other image runs at the
   same size as the slider: 60rem wide, cropped to 16:9.
 - **Layout:** built from the site's existing classes; the few new rules are at the end of
   `styles/components.css` under "Vision page", using tokens only (one new token:
@@ -309,13 +311,11 @@ build. It covered all 27 pages (9 pages × 3 languages) at 375, 768 and 1440 px
 
 Differences that could not be removed:
 
-1. **Image pixels.** `next/image` serves resized, re-encoded WebP files (quality 75, at
-   the width each layout needs) rather than the original files scaled by the browser.
-   Photos and the logo are therefore very slightly softer or sharper at some widths. The
-   layout does not change. To get the originals byte for byte, add `unoptimized` to
-   `SiteImage` / `Spark`, which loses responsive sizes.
-2. **Aspect-ratio pin.** Because the resized files have rounded pixel sizes, two images
-   sized only by width (the Story illustration and the star) would have drifted by about
+1. **Image pixels.** Image optimization is off (`images.unoptimized` in
+   `next.config.ts`): every image is served as the original file in `public/`, with no
+   resizing or recompression, and the browser scales it. Pages are heavier in exchange for full
+   quality; the Vision renders are high-quality JPEGs of about 0.6MB each.
+2. **Aspect-ratio pin.** Two images sized only by width (the Story illustration and the star) would have drifted by about
    0.3px in height. They carry an inline `aspect-ratio` equal to the original file's
    ratio, which puts every line after them back in the same place as the reference.
 3. **Trailing slashes.** Canonical and hreflang URLs have no trailing slash (`/it`

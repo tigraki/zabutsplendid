@@ -20,17 +20,20 @@ export interface SwitchLabels {
   viewInSlider: string;
   /** "{n}" and "{total}" are replaced. */
   position: string;
+  /** Tiles-view hint, for mouse and for touch screens. */
+  hint: string;
+  hintTouch: string;
   concept: string;
 }
 
 /**
  * Image gallery with a Slider / Tiles switch, as in the pre-build prototype, using its
  * classes (.room-gallery, .view-toggle, .view-btn, .room-slider, .slide-nav, .slide-dots,
- * .room-tiles, .room-tile). Slider is the default view; picking a tile opens that image
- * in the slider. Also: swipe on touch screens and ←/→ keys when the slider has focus.
+ * .room-tiles, .room-tile). Tiles is the default view, so the whole set is visible at
+ * once, with a "click an image to enlarge" hint; picking a tile opens it in the slider. Also: swipe on touch screens and ←/→ keys when the slider has focus.
  */
 export function VisionSwitchGallery({ images, labels }: { images: SwitchImage[]; labels: SwitchLabels }) {
-  const [view, setView] = useState<'slider' | 'tiles'>('slider');
+  const [view, setView] = useState<'slider' | 'tiles'>('tiles');
   const [index, setIndex] = useState(0);
   const touchX = useRef<number | null>(null);
   const total = images.length;
@@ -54,18 +57,26 @@ export function VisionSwitchGallery({ images, labels }: { images: SwitchImage[];
 
   return (
     <div className="room-gallery vision-switch">
-      <div className="view-toggle" role="group" aria-label={labels.group}>
-        {(['slider', 'tiles'] as const).map((v) => (
-          <button
-            key={v}
-            type="button"
-            className={view === v ? 'view-btn active' : 'view-btn'}
-            aria-pressed={view === v}
-            onClick={() => setView(v)}
-          >
-            {labels[v]}
-          </button>
-        ))}
+      <div className="vision-switch-bar">
+        {view === 'tiles' && (
+          <p className="label vision-switch-hint">
+            <span className="hint-pointer">{labels.hint}</span>
+            <span className="hint-touch">{labels.hintTouch}</span>
+          </p>
+        )}
+        <div className="view-toggle" role="group" aria-label={labels.group}>
+          {(['slider', 'tiles'] as const).map((v) => (
+            <button
+              key={v}
+              type="button"
+              className={view === v ? 'view-btn active' : 'view-btn'}
+              aria-pressed={view === v}
+              onClick={() => setView(v)}
+            >
+              {labels[v]}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div hidden={view !== 'slider'}>

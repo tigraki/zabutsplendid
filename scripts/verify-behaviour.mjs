@@ -187,7 +187,7 @@ if (PARTS.includes('lang')) {
     for (const from of LANGS) {
       for (const slug of SLUGS) {
         for (const to of LANGS.filter((l) => l !== from)) {
-          await page.goto(SITE + path(from, slug), { waitUntil: 'domcontentloaded' });
+          await page.goto(SITE + path(from, slug), { waitUntil: 'load' });
           if (width <= 880) {
             await page.locator('#navToggle').click();
             await page.waitForTimeout(400);
@@ -243,7 +243,7 @@ if (PARTS.includes('signup')) {
   const page = await ctx.newPage();
   for (const lang of LANGS) {
     for (const slug of SLUGS) {
-      await page.goto(SITE + path(lang, slug), { waitUntil: 'domcontentloaded' });
+      await page.goto(SITE + path(lang, slug), { waitUntil: 'load' });
       const hrefs = await page.$$eval('a[href*="fillout"]', (as) => as.map((a) => a.getAttribute('href')));
       const wrong = hrefs.filter((h) => h !== SIGNUP(lang));
       check(`${path(lang, slug)} ${hrefs.length} Fillout link(s) → ${SIGNUP(lang)}`, hrefs.length > 0 && wrong.length === 0, wrong.join(', '));
@@ -265,9 +265,9 @@ if (PARTS.includes('signup')) {
       for (const [slug, sel, label] of BUTTONS) {
         const c = await browser.newContext({ viewport: { width, height: 800 } });
         const p = await c.newPage();
-        await p.goto(SITE + path(lang, slug), { waitUntil: 'domcontentloaded' });
+        await p.goto(SITE + path(lang, slug), { waitUntil: 'load' });
         const [resp] = await Promise.all([
-          p.waitForNavigation({ url: /zabut\.fillout\.com/, waitUntil: 'domcontentloaded', timeout: 20000 }).catch(() => null),
+          p.waitForNavigation({ url: /zabut\.fillout\.com/, waitUntil: 'load', timeout: 20000 }).catch(() => null),
           p.locator(sel).first().click(),
         ]);
         let status = resp ? resp.status() : 0;
@@ -275,7 +275,7 @@ if (PARTS.includes('signup')) {
         // Fillout's servers occasionally answer a burst of automated requests with a 404;
         // one reload tells a flaky answer apart from a wrong link.
         if (resp && status !== 200 && p.url() === SIGNUP(lang)) {
-          status = (await p.reload({ waitUntil: 'domcontentloaded' }))?.status() ?? 0;
+          status = (await p.reload({ waitUntil: 'load' }))?.status() ?? 0;
           note = ` (first load answered ${resp.status()}, reload ${status})`;
           if (status === 200) console.log(`note: [${width}] ${lang} ${label}${note}`);
         }
