@@ -16,6 +16,7 @@ export const en: SiteContent = {
     nav: {
       fundraising: "Fundraising",
       story: "Story",
+      vision: "Vision",
       experiences: "Experiences",
       blog: "Blog",
       contact: "Contact",
@@ -177,7 +178,7 @@ export const en: SiteContent = {
           "We are looking to speak with people who believe in this vision and would like to explore how they might take part in it.",
         ],
       },
-      primaryCta: "Discuss a Partnership",
+      primaryCta: "Explore a Partnership",
       secondaryCta: "Follow the Journey",
       closing: "From the first steps onward, we'll share how Zabut takes shape.",
     },

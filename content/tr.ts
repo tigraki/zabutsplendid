@@ -16,6 +16,7 @@ export const tr: SiteContent = {
     nav: {
       fundraising: "Destek",
       story: "Hikâye",
+      vision: "Vizyon", // TR: needs native review
       experiences: "Deneyimler",
       blog: "Blog",
       contact: "İletişim",
@@ -177,7 +178,7 @@ export const tr: SiteContent = {
           "Bu vizyona inanan ve nasıl dahil olabileceğini konuşmak isteyen kişilerle tanışmak istiyoruz.",
         ],
       },
-      primaryCta: "Ortaklığı Konuşalım",
+      primaryCta: "Ortaklık Olanaklarını Keşfet",
       secondaryCta: "Yolculuğu Takip Et",
       closing: "İlk adımlardan itibaren Zabut'un nasıl şekillendiğini paylaşacağız.",
     },

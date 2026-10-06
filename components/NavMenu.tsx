@@ -7,8 +7,8 @@ import type { Lang } from '@/content/types';
 import { LANGS } from '@/lib/i18n';
 import { NAV_KEY, pagePath, parsePathname } from '@/lib/routes';
 
-type NavKey = 'fundraising' | 'story' | 'experiences' | 'blog' | 'contact';
-const NAV_ORDER: NavKey[] = ['fundraising', 'story', 'experiences', 'blog', 'contact'];
+type NavKey = 'fundraising' | 'story' | 'vision' | 'experiences' | 'blog' | 'contact';
+const NAV_ORDER: NavKey[] = ['fundraising', 'story', 'vision', 'experiences', 'blog', 'contact'];
 
 /**
  * Main nav, language switcher and the mobile menu button.

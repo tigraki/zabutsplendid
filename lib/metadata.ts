@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import type { Lang } from '@/content/types';
 import { ogImage, posts } from '@/content/shared';
+import { vision } from '@/content/vision';
 import { getContent, LANGS } from './i18n';
 import { pagePath, type PageKey } from './routes';
 import { SITE_URL } from './site-url';
@@ -13,6 +14,8 @@ function pageHeading(lang: Lang, key: PageKey): string | null {
       return null;
     case 'post-land-vision':
       return c.posts['land-vision'].title;
+    case 'vision':
+      return vision.intro.title[lang];
     default:
       return c.pages[key].title;
   }
@@ -31,6 +34,8 @@ export function pageTitle(lang: Lang, key: PageKey): string {
 export function buildMetadata(lang: Lang, key: PageKey): Metadata {
   const { meta } = getContent(lang).site;
   const title = pageTitle(lang, key);
+  // pages with their own description; the rest use the site's
+  const description = key === 'vision' ? vision.meta.description[lang] : meta.description;
   const url = pagePath(lang, key);
   const languages: Record<string, string> = {};
   for (const l of LANGS) languages[l] = pagePath(l, key);
@@ -41,13 +46,13 @@ export function buildMetadata(lang: Lang, key: PageKey): Metadata {
   return {
     metadataBase: new URL(SITE_URL),
     title: { absolute: title },
-    description: meta.description,
+    description,
     alternates: { canonical: url, languages },
     openGraph: {
       type: post ? 'article' : 'website',
       siteName: meta.siteName,
       title,
-      description: meta.description,
+      description,
       url,
       locale: meta.ogLocale,
       alternateLocale,
@@ -57,7 +62,7 @@ export function buildMetadata(lang: Lang, key: PageKey): Metadata {
     twitter: {
       card: 'summary_large_image',
       title,
-      description: meta.description,
+      description,
       images: [ogImage.src],
     },
   };

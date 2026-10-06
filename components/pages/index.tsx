@@ -8,6 +8,7 @@ import { FundraisingPage } from './FundraisingPage';
 import { HomePage } from './HomePage';
 import { LegalPage } from './LegalPage';
 import { StoryPage } from './StoryPage';
+import { VisionPage } from './VisionPage';
 
 /** One component per page; every language renders through the same component. */
 export function PageView({ lang, page }: { lang: Lang; page: PageKey }) {
@@ -18,6 +19,8 @@ export function PageView({ lang, page }: { lang: Lang; page: PageKey }) {
       return <FundraisingPage lang={lang} />;
     case 'story':
       return <StoryPage lang={lang} />;
+    case 'vision':
+      return <VisionPage lang={lang} />;
     case 'experiences':
       return <ExperiencesPage lang={lang} />;
     case 'blog':

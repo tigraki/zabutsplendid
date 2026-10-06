@@ -63,6 +63,7 @@
   --size-3400: 34rem;
   --size-3500: 35rem;
   --size-4800: 48rem;
+  --size-6000: 60rem;
 
   /* ----- Spacing — rem, named by value ×100 (e.g. --space-120 = 1.2rem) ----- */
   --space-015: 0.15rem;

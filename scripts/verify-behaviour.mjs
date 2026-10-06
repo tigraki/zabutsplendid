@@ -23,7 +23,7 @@ const args = Object.fromEntries(process.argv.slice(2).map((a) => a.replace(/^--/
 const PARTS = (args.part || 'pages,menu,scroll,lang,tips,signup,copy').split(',');
 const WIDTHS = (args.widths || '375,1440').split(',').map(Number);
 const LANGS = ['en', 'it', 'tr'];
-const SLUGS = ['', '/story', '/experiences', '/fundraising', '/blog', '/blog/land-vision', '/contact', '/privacy', '/terms'];
+const SLUGS = ['', '/story', '/vision', '/experiences', '/fundraising', '/blog', '/blog/land-vision', '/contact', '/privacy', '/terms'];
 const path = (lang, slug) => (lang === 'en' ? slug || '/' : `/${lang}${slug}`);
 const SIGNUP = (lang) => `https://zabut.fillout.com/signup?lang=${lang}`;
 const CANONICAL_BASE = process.env.NEXT_PUBLIC_SITE_URL || 'https://zabutsplendid.vercel.app';
@@ -253,7 +253,7 @@ if (PARTS.includes('signup')) {
   // clicking them opens the form
   const BUTTONS = [
     ['', '.hero-ctas a.cta-outline', 'home "Sign up for updates"'],
-    ['/fundraising', '.fund-cta-row a.cta:not(.cta-outline)', 'fundraising "Discuss a Partnership"'],
+    ['/fundraising', '.fund-cta-row a.cta:not(.cta-outline)', 'fundraising "Explore a Partnership"'],
     ['/fundraising', '.deck-note a.text-link', 'fundraising "Join the list"'],
     ['/story', '.story-copy > a.cta', 'story "Join Our Journey"'],
     ['/experiences', '.offer-close a.cta-outline', 'experiences "Sign up for updates"'],

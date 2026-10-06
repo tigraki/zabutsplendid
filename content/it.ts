@@ -16,6 +16,7 @@ export const it: SiteContent = {
     nav: {
       fundraising: "Raccolta fondi",
       story: "Storia",
+      vision: "Visione",
       experiences: "Esperienze",
       blog: "Blog",
       contact: "Contatti",
@@ -177,7 +178,7 @@ export const it: SiteContent = {
           "Vorremmo parlare con chi crede in questa visione e desidera capire come prenderne parte.",
         ],
       },
-      primaryCta: "Parliamo di una partnership",
+      primaryCta: "Esplora una partnership",
       secondaryCta: "Segui il percorso",
       closing: "Dai primi passi in poi, racconteremo come prende forma Zabut.",
     },

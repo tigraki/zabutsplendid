@@ -110,6 +110,10 @@ function snapshot(page) {
           inBudget: !!dl && dl !== el && dl.contains(el),
           afterBudget: !!dl && !!(dl.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING) && !dl.contains(el),
           isBudget: dl === el,
+          // the Vision link added to the nav and the footer after the port
+          isVisionLink: el.tagName === 'A' && /\/vision$/.test(el.getAttribute('href') || ''),
+          inNavOrFootCols: !!el.closest('nav.nav-links, .foot-columns'),
+          isFooterBox: el.matches('footer, .foot-inner, .foot-columns, .foot-col'),
           tag: el.tagName.toLowerCase(),
           cls: (el.getAttribute('class') || '').replace(/\s*\bscrolled\b/, ''),
           depth,
@@ -133,6 +137,10 @@ const INTENDED_TEXT = [
   "Two distinct dining experiences inspired by Sicilian cuisine and Sambuca's Arab heritage.",
   "Due esperienze gastronomiche distinte, ispirate alla cucina siciliana e all'eredità araba di Sambuca.",
   "Sicilya mutfağından ve Sambuca'nın Arap mirasından ilham alan iki ayrı yeme-içme deneyimi.",
+  // partnership button renamed site-wide to the founder's wording
+  'Explore a Partnership',
+  'Esplora una partnership',
+  'Ortaklık Olanaklarını Keşfet',
 ];
 
 // The fundraising budget was updated on purpose after the port (new figures and an extra
@@ -140,6 +148,10 @@ const INTENDED_TEXT = [
 // taller, and everything below it moving down by the same amount, is reported as intended.
 function diffSnapshots(a, b) {
   const issues = [];
+  // The Vision page link (nav + footer) did not exist in the reference: drop it, and treat
+  // the nav items moving over and the footer column growing as intended.
+  const hasVision = b.some((e) => e.isVisionLink);
+  if (hasVision) b = b.filter((e) => !e.isVisionLink);
   if (b.some((e) => e.isBudget)) {
     a = a.filter((e) => !e.inBudget);
     b = b.filter((e) => !e.inBudget);
@@ -168,6 +180,7 @@ function diffSnapshots(a, b) {
     }
     const budgetShift =
       (y.isBudget && Math.abs(x.box[0] - y.box[0]) <= 1 && Math.abs(x.box[1] - y.box[1]) <= 1 && Math.abs(x.box[2] - y.box[2]) <= 1) ||
+      (hasVision && (y.inNavOrFootCols || y.isFooterBox)) ||
       (y.afterBudget && [0, 2, 3].every((k) => Math.abs(x.box[k] - y.box[k]) <= 1)) ||
       // containers that hold the table grow by the same amount
       (!y.afterBudget && !y.isBudget && [0, 1, 2].every((k) => Math.abs(x.box[k] - y.box[k]) <= 1) && y.box[3] > x.box[3] && b.some((e) => e.isBudget));

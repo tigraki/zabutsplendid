@@ -1144,7 +1144,7 @@ img.spark{ height: auto; }
 
 .pillars-caption, .offer-caption{ margin: var(--space-125) 0 0; }
 
-.fund-figure{ max-width: 60rem; margin: 0 auto; }
+.fund-figure{ max-width: var(--size-6000); margin: 0 auto; }
 
 .fund-figure .illustration{ width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
 
@@ -1154,3 +1154,63 @@ img.spark{ height: auto; }
 }
 
 .offer .card-img{ margin-bottom: var(--space-110); }
+
+/* ================================================================
+   Vision page ("What We're Creating")
+   Built from the site's existing classes (page-intro, body-copy, figure, caption,
+   fund-caveat, pull-quote, fund-cta-row, cta); only the pieces below are new.
+   ================================================================ */
+.vision-section{ padding-block: var(--space-section) 0; }
+.vision-intro-copy{ margin-top: var(--fluid-250-400); }
+
+/* section and block headings, set in the reading column */
+.vision-head{ margin-bottom: var(--space-140); }
+.vision-head .label{ margin-bottom: var(--space-070); color: var(--accent); }
+.vision-head h2{ font-size: var(--fs-h2); line-height: var(--lh-115); }
+.vision-head h3{ font-size: var(--fs-h3); line-height: var(--lh-130); }
+.vision-head .italic-line{ display: block; margin-top: var(--space-070); font-size: var(--fs-125); }
+.vision-block{ margin-top: var(--fluid-300-450); }
+
+/* "Planned spaces" / "Planned features" */
+.vision-list{ margin-top: var(--space-180); }
+.vision-list .label{ margin-bottom: var(--space-060); }
+.vision-list ul{ list-style: none; margin: 0; padding: 0; }
+.vision-list li{ padding-block: var(--space-060); border-top: var(--border-hair) solid var(--line-faint); font-size: var(--fs-105); line-height: var(--lh-155); }
+.vision-list li:last-child{ border-bottom: var(--border-hair) solid var(--line-faint); }
+
+/* images */
+.vision-gallery{ display: grid; gap: var(--fluid-150-300); max-width: var(--size-6000); margin: var(--fluid-250-350) auto 0; }
+.vision-grid{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--fluid-150-300) var(--space-125); }
+.vision-figure .illustration{ width: 100%; height: auto; margin: 0; }
+.vision-figure .caption{ margin-bottom: 0; }
+.vision-figure--measure{ width: 100%; max-width: var(--measure); margin-inline: auto; }
+.wrap > .vision-figure--hero{ max-width: none; }
+.vision-frame{ position: relative; }
+.vision-concept{
+  position: absolute; left: var(--space-075); bottom: var(--space-075); pointer-events: none;
+  padding: var(--space-020) var(--space-060); background: var(--mix-bg-85-transparent); color: var(--ink);
+  font-family: var(--serif-body); font-size: var(--fs-064); font-weight: 600; letter-spacing: var(--track-200);
+  text-transform: uppercase; line-height: var(--lh-155);
+}
+@media (min-width: 55rem){ .vision-grid--3{ grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 36rem){ .vision-grid{ grid-template-columns: 1fr; } }
+
+/* experiences table */
+.vision-table{ width: 100%; max-width: var(--size-6000); margin: var(--fluid-250-350) auto 0; border-collapse: collapse; text-align: left; }
+.vision-table thead th{ padding: 0 var(--space-125) var(--space-070) 0; font-weight: 600; vertical-align: bottom; }
+.vision-table tbody tr{ border-top: var(--border-hair) solid var(--line-faint); }
+.vision-table tbody tr:last-child{ border-bottom: var(--border-hair) solid var(--line-faint); }
+.vision-table tbody th, .vision-table td{ padding: var(--space-100) var(--space-125) var(--space-100) 0; vertical-align: top; font-size: var(--fs-105); line-height: var(--lh-155); }
+.vision-table tbody th{ font-family: var(--serif-display); font-weight: 400; font-size: var(--fs-110); line-height: var(--lh-130); width: 26%; }
+.vision-table .vision-format{ color: var(--ink-soft); width: 30%; padding-right: 0; }
+@media (max-width: 48rem){
+  .vision-table thead{ position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .vision-table tbody tr{ display: block; padding-block: var(--space-100); }
+  .vision-table tbody th, .vision-table td{ display: block; width: auto; padding: var(--space-020) 0; }
+  .vision-table .vision-format{ width: auto; }
+}
+
+/* closing journey: the founder's verse, in the pull-quote style */
+.vision-verse.pull-quote{ max-width: var(--measure); margin: var(--space-180) auto var(--space-250); }
+.vision-verse.pull-quote p{ font-size: var(--fs-h3); line-height: var(--lh-135); max-width: none; }
+.vision-section--journey .story-subhead{ margin-top: 0; }

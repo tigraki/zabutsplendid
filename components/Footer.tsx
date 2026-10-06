@@ -39,6 +39,7 @@ export function Footer({ lang }: { lang: Lang }) {
             <div className="foot-col-title">{f.columns.explore}</div>
             <Link href={pagePath(lang, 'fundraising')}>{site.nav.fundraising}</Link>
             <Link href={pagePath(lang, 'story')}>{site.nav.story}</Link>
+            <Link href={pagePath(lang, 'vision')}>{site.nav.vision}</Link>
             <Link href={pagePath(lang, 'experiences')}>{site.nav.experiences}</Link>
             <Link href={pagePath(lang, 'blog')}>{site.nav.blog}</Link>
           </div>

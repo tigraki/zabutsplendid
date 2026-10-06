@@ -205,6 +205,30 @@ back to Home), so `/stay` is not generated and returns 404. No visible link in t
 reference points to `#/stay`; the only reference to it was `PHASE_CTA_HREF[3]` inside
 the unused phase switcher (see above), so no link needed repointing.
 
+## Vision page
+
+`/vision`, `/it/vision`, `/tr/vision`: "What We're Creating", the founder's tour of the
+planned spaces (Soglia, the Nido and Dimora lodges, the restaurant, Promessa, Respiro &
+Radici, the planned experiences, Bottega delle Radici, Walk the Land). It is linked in the
+nav and the footer as Vision / Visione / Vizyon.
+
+- **Content:** `content/vision.ts`. Unlike the rest of the site, all three languages sit
+  side by side (`{ en, it, tr }` per field), the shape of a localized Sanity document. The
+  types at the top of the file (`VisionPage`, `VisionSection`, `VisionBlock`,
+  `VisionImage`) are the future schema. `components/pages/VisionPage.tsx` reads only from
+  this file.
+- **Copy:** EN and TR are the founder's text, verbatim. IT was translated for the page.
+  Alt text, captions, the nav label and the SEO description were written for the site; the
+  Turkish versions of those lines are marked `// TR: needs native review`.
+- **Images:** renders in `public/vision/` (`01-site-aerial.png` …), copied from
+  `_incoming/vision/` with clean names. No file was over 3000px, so none was resized or
+  converted; `next/image` serves sized WebP/AVIF. `_incoming/` holds the originals and is
+  git-ignored. Sections with no render reuse concept visuals already on the site. Every
+  image has `concept: true` and shows a small "Concept" label.
+- **Layout:** built from the site's existing classes; the few new rules are at the end of
+  `styles/components.css` under "Vision page", using tokens only (one new token:
+  `--size-6000`).
+
 ## SEO
 
 Every page has: a title (the reference router's rule), the language's meta description
@@ -322,11 +346,13 @@ Differences that could not be removed:
 
 ## Copy errors spotted (not fixed)
 
-Listed only; not fixed. The copy files match the reference text exactly, apart from two
-deliberate fixes made after the port: the IT and TR Story headings are now translated
+Listed only; not fixed. The copy files match the reference text exactly, apart from deliberate
+changes made after the port: the IT and TR Story headings are now translated
 ("Un soggiorno più significativo", "Daha anlamlı bir konaklama"), and the home page
 "Persone" pillar now says "Arab heritage" in all three languages, matching the rest of
-the site. The visual comparison therefore reports those texts as intended differences.
+the site. The fundraising page's partnership button now uses the founder's wording,
+"Explore a Partnership" (IT "Esplora una partnership", TR "Ortaklık Olanaklarını Keşfet"),
+as on the Vision page. The visual comparison reports these texts as intended differences.
 
 1. **Sign-off not localised.** The journal sign-off "Ayşe Zülal, Alba in Sicily" is
    identical in IT and TR ("Alba in Sicily" is English).
@@ -335,7 +361,7 @@ the site. The visual comparison therefore reports those texts as intended differ
 3. **Formal/informal address (IT).** The journal post ends "Benvenuti alla prima pagina
    di Zabut" (plural), while the rest of the Italian site addresses the reader as "tu".
 4. **Button capitalisation (EN).** Buttons mix Title Case ("Support the Vision",
-   "Discuss a Partnership", "Follow the Journey", "Get in Touch", "Join Our Journey") and
+   "Explore a Partnership", "Follow the Journey", "Get in Touch", "Join Our Journey") and
    sentence case ("Sign up for updates", "Join the list", "See the budget and how to take
    part"). TR shows the same mix.
 5. **"Pitch deck" (IT).** The label is left in English on the Italian fundraising page

@@ -6,6 +6,7 @@ export const PAGE_PATHS = {
   home: '',
   fundraising: 'fundraising',
   story: 'story',
+  vision: 'vision',
   experiences: 'experiences',
   blog: 'blog',
   'post-land-vision': 'blog/land-vision',
@@ -17,9 +18,10 @@ export const PAGE_PATHS = {
 export type PageKey = keyof typeof PAGE_PATHS;
 
 /** Top-level nav item that is marked current for each page (the reference's NAV_PARENT map). */
-export const NAV_KEY: Partial<Record<PageKey, 'fundraising' | 'story' | 'experiences' | 'blog' | 'contact'>> = {
+export const NAV_KEY: Partial<Record<PageKey, 'fundraising' | 'story' | 'vision' | 'experiences' | 'blog' | 'contact'>> = {
   fundraising: 'fundraising',
   story: 'story',
+  vision: 'vision',
   experiences: 'experiences',
   blog: 'blog',
   contact: 'contact',

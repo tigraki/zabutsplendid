@@ -90,6 +90,7 @@ export interface SiteChrome {
   nav: {
     fundraising: string;
     story: string;
+    vision: string;
     experiences: string;
     blog: string;
     contact: string;
