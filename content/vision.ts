@@ -790,9 +790,9 @@ export const vision: VisionPage = {
           },
           images: [
             {
-              src: '/images/exp-retreats.webp',
-              width: 840,
-              height: 630,
+              src: `${V}/25-respiro-retreat.jpg`,
+              width: 1448,
+              height: 1086,
               concept: true,
               alt: {
                 en: 'Concept visual of a yoga session among the guest houses',
