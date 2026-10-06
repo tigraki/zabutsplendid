@@ -65,8 +65,10 @@ export function NavMenu({
         </div>
       </nav>
       <button
+        type="button"
         className="nav-toggle-btn"
         id="navToggle"
+        aria-controls="navLinks"
         aria-label={menuButtonLabel}
         aria-expanded={open ? 'true' : 'false'}
         onClick={() => setOpen((o) => !o)}

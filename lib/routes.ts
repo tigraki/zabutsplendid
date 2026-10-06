@@ -24,6 +24,7 @@ export const NAV_KEY: Partial<Record<PageKey, 'fundraising' | 'story' | 'vision'
   vision: 'vision',
   experiences: 'experiences',
   blog: 'blog',
+  'post-land-vision': 'blog',
   contact: 'contact',
 };
 

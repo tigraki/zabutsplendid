@@ -1,3 +1,5 @@
+# ARCHIVED one-off migration script. Do not run: it rewrites the live content/styles
+# files from reference/ and would wipe every change made since the port.
 """One-off migration helper (kept for reference): splits the reference site's inline
 CSS into styles/{base,layout,components}.css and replaces raw values with tokens.
 Run: python3 scripts/split-css.py <ref.css> <outdir>"""

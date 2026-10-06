@@ -3,10 +3,10 @@ node_modules/
 out/
 next-env.d.ts
 *.tsbuildinfo
+.env
 .env*.local
 .vercel
 .DS_Store
 verification/
-.DS_Store
 reference/
 _incoming/

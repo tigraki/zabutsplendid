@@ -36,6 +36,7 @@ export function VisionSwitchGallery({ images, labels }: { images: SwitchImage[];
   const [view, setView] = useState<'slider' | 'tiles'>('tiles');
   const [index, setIndex] = useState(0);
   const touchX = useRef<number | null>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
   const total = images.length;
   const go = (n: number) => setIndex((n + total) % total);
   const fill = (s: string) => s.replace('{n}', String(index + 1)).replace('{total}', String(total));
@@ -81,10 +82,11 @@ export function VisionSwitchGallery({ images, labels }: { images: SwitchImage[];
 
       <div hidden={view !== 'slider'}>
         <div
+          ref={sliderRef}
           className="room-slider large"
           role="region"
           aria-roledescription="carousel"
-          aria-label={labels.group}
+          aria-label={labels.slider}
           tabIndex={0}
           onKeyDown={onKey}
           onPointerDown={onPointerDown}
@@ -130,10 +132,12 @@ export function VisionSwitchGallery({ images, labels }: { images: SwitchImage[];
             key={image.src}
             type="button"
             className="room-tile has-image"
-            aria-label={labels.viewInSlider.replace('{n}', String(i + 1))}
+            aria-label={`${image.alt}. ${labels.viewInSlider.replace('{n}', String(i + 1))}`}
             onClick={() => {
               setIndex(i);
               setView('slider');
+              // the tile that had focus is now hidden: move focus to the slider
+              requestAnimationFrame(() => sliderRef.current?.focus());
             }}
           >
             <Image

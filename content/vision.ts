@@ -207,7 +207,7 @@ export const vision: VisionPage = {
           'Existing stone walls, timber ceilings and soft lighting shape the atmosphere, with comfortable seating and books inviting you to settle in.',
         ],
         it: [
-          'Soglia è l’ingresso nel ritmo di Zabut. Il nostro edificio di accoglienza riunisce una lobby accogliente, una lounge con biblioteca, un caffè e bar e una veranda per mattine lente e conversazioni senza fretta.',
+          'Soglia è l’ingresso nel ritmo di Zabut. Il nostro edificio di accoglienza riunisce una lobby accogliente, una lounge con biblioteca, una caffetteria con bar e una veranda per mattine lente e conversazioni senza fretta.',
           'I muri in pietra esistenti, i soffitti in legno e le luci soffuse creano l’atmosfera, mentre sedute comode e libri ti invitano a fermarti.',
         ],
         tr: [
@@ -260,7 +260,7 @@ export const vision: VisionPage = {
           concept: true,
           alt: {
             en: 'Concept render of the Soglia lobby: a stone reception desk, a library wall and the lounge beyond',
-            it: 'Render concettuale della lobby di Soglia: il banco della reception, la parete-biblioteca e la lounge sullo sfondo',
+            it: 'Render concettuale della lobby di Soglia: il banco della reception in pietra, la parete-biblioteca e la lounge sullo sfondo',
             tr: 'Soglia lobisinin konsept görseli: taş resepsiyon bankosu, kütüphane duvarı ve arkada lounge', // TR: needs native review
           },
           caption: {
@@ -374,7 +374,7 @@ export const vision: VisionPage = {
               alt: {
                 en: 'Concept render of the Nido living area with stairs up to the sleeping loft',
                 it: 'Render concettuale della zona giorno di Nido con la scala verso il soppalco',
-                tr: 'Yatak katına çıkan merdiveniyle Nido oturma alanının konsept görseli', // TR: needs native review
+                tr: 'Yatak asma katına çıkan merdiveniyle Nido oturma alanının konsept görseli', // TR: needs native review
               },
               caption: { en: 'Living area', it: 'Zona giorno', tr: 'Oturma alanı' }, // TR: needs native review
             },
@@ -386,7 +386,7 @@ export const vision: VisionPage = {
               alt: {
                 en: 'Concept render of the Nido sleeping loft above the living area, with the stairs, sofa and coffee corner',
                 it: 'Render concettuale del soppalco di Nido sopra la zona giorno, con la scala, il divano e l’angolo caffè',
-                tr: 'Nido’nun oturma alanının üzerindeki asma kat yatağı; merdiven, kanepe ve kahve köşesiyle konsept görsel', // TR: needs native review
+                tr: 'Nido’nun oturma alanının üzerindeki yatak asma katının konsept görseli: merdiven, kanepe ve kahve köşesi', // TR: needs native review
               },
               caption: {
                 en: 'Sleeping loft above the living area',
@@ -402,7 +402,7 @@ export const vision: VisionPage = {
               alt: {
                 en: 'Concept render of the Nido wardrobe, minibar and coffee corner',
                 it: 'Render concettuale dell’armadio, del minibar e dell’angolo caffè di Nido',
-                tr: 'Nido’nun gardırop, minibar ve kahve köşesinin konsept görseli', // TR: needs native review
+                tr: 'Nido’daki gardırop, minibar ve kahve köşesinin konsept görseli', // TR: needs native review
               },
               caption: {
                 en: 'Wardrobe, minibar and coffee machine',
@@ -563,11 +563,11 @@ export const vision: VisionPage = {
               height: 941,
               concept: true,
               alt: {
-                en: 'Concept render of one of the three Dimora bedrooms',
-                it: 'Render concettuale di una delle tre camere di Dimora',
-                tr: 'Dimora’nın üç yatak odasından birinin konsept görseli', // TR: needs native review
+                en: 'Concept render of a Dimora double bedroom with a glass door onto the olive trees',
+                it: 'Render concettuale di una camera matrimoniale di Dimora con una porta a vetri sugli ulivi',
+                tr: 'Zeytin ağaçlarına açılan cam kapılı bir Dimora çift kişilik yatak odasının konsept görseli', // TR: needs native review
               },
-              caption: { en: 'Bedroom', it: 'Camera da letto', tr: 'Yatak odası' }, // TR: needs native review
+              caption: { en: 'Double bedroom', it: 'Camera matrimoniale', tr: 'Çift kişilik yatak odası' }, // TR: needs native review
             },
             {
               src: `${V}/16-dimora-bedroom-2.jpg`,
@@ -575,11 +575,11 @@ export const vision: VisionPage = {
               height: 941,
               concept: true,
               alt: {
-                en: 'Concept render of one of the three Dimora bedrooms',
-                it: 'Render concettuale di una delle tre camere di Dimora',
-                tr: 'Dimora’nın üç yatak odasından birinin konsept görseli', // TR: needs native review
+                en: 'Concept render of a Dimora double bedroom under a low sloping ceiling',
+                it: 'Render concettuale di una camera matrimoniale di Dimora sotto un soffitto basso e inclinato',
+                tr: 'Alçak eğimli tavanın altındaki bir Dimora çift kişilik yatak odasının konsept görseli', // TR: needs native review
               },
-              caption: { en: 'Bedroom', it: 'Camera da letto', tr: 'Yatak odası' }, // TR: needs native review
+              caption: { en: 'Double bedroom', it: 'Camera matrimoniale', tr: 'Çift kişilik yatak odası' }, // TR: needs native review
             },
             {
               src: `${V}/17-dimora-bedroom-3.jpg`,
@@ -587,11 +587,11 @@ export const vision: VisionPage = {
               height: 941,
               concept: true,
               alt: {
-                en: 'Concept render of one of the three Dimora bedrooms',
-                it: 'Render concettuale di una delle tre camere di Dimora',
-                tr: 'Dimora’nın üç yatak odasından birinin konsept görseli', // TR: needs native review
+                en: 'Concept render of the Dimora single bedroom with built-in shelving and a glass door onto the garden',
+                it: 'Render concettuale della camera singola di Dimora con scaffali a muro e una porta a vetri sul giardino',
+                tr: 'Gömme raflı ve bahçeye açılan cam kapılı Dimora tek kişilik yatak odasının konsept görseli', // TR: needs native review
               },
-              caption: { en: 'Bedroom', it: 'Camera da letto', tr: 'Yatak odası' }, // TR: needs native review
+              caption: { en: 'Single bedroom', it: 'Camera singola', tr: 'Tek kişilik yatak odası' }, // TR: needs native review
             },
             {
               src: `${V}/18-dimora-bathroom.jpg`,
@@ -600,8 +600,8 @@ export const vision: VisionPage = {
               concept: true,
               alt: {
                 en: 'Concept render of the Dimora bathroom with a spacious walk-in shower',
-                it: 'Render concettuale del bagno di Dimora con un’ampia doccia',
-                tr: 'Geniş duşlu Dimora banyosunun konsept görseli', // TR: needs native review
+                it: 'Render concettuale del bagno di Dimora con un’ampia doccia walk-in',
+                tr: 'Geniş, kabinsiz duşlu Dimora banyosunun konsept görseli', // TR: needs native review
               },
               caption: {
                 en: 'Bathroom with a spacious shower',
@@ -731,15 +731,15 @@ export const vision: VisionPage = {
           height: 941,
           concept: true,
           alt: {
-            en: 'Aerial concept render of Promessa, the outdoor ceremony space set among olive trees',
-            it: 'Render concettuale aereo di Promessa, lo spazio per le cerimonie all’aperto tra gli ulivi',
-            tr: 'Zeytin ağaçları arasındaki açık hava tören alanı Promessa’nın havadan konsept görseli', // TR: needs native review
+            en: 'Aerial concept render of the site, with Promessa’s ceremony area, rows of chairs and an arch, in the lower left below the lodges and the farmhouse',
+            it: 'Render concettuale aereo del sito, con l’area cerimonie di Promessa, file di sedie e un arco, in basso a sinistra sotto i lodge e il casale',
+            tr: 'Alanın havadan konsept görseli: sol altta, lodge’ların ve çiftlik evinin aşağısında, sıra sıra sandalyeler ve bir takıyla Promessa’nın tören alanı', // TR: needs native review
           },
         },
         {
-          src: '/images/exp-weddings.webp',
-          width: 840,
-          height: 630,
+          src: '/images/exp-weddings.jpg',
+          width: 1448,
+          height: 1086,
           concept: true,
           // alt text as used elsewhere on the site
           alt: {
@@ -757,7 +757,7 @@ export const vision: VisionPage = {
       title: { en: 'Respiro & Radici', it: 'Respiro e Radici', tr: 'Respiro ve Radici' },
       lead: {
         en: 'Two settings for slowing down and reconnecting.',
-        it: 'Due luoghi per rallentare e ritrovare il contatto.',
+        it: 'Due luoghi per rallentare e ritrovarsi.',
         tr: 'Yavaşlamak ve yeniden bağ kurmak için iki farklı ortam.',
       },
       text: {
@@ -790,7 +790,7 @@ export const vision: VisionPage = {
           },
           images: [
             {
-              src: `${V}/25-respiro-retreat.jpg`,
+              src: '/images/exp-retreats.jpg',
               width: 1448,
               height: 1086,
               concept: true,
@@ -819,14 +819,14 @@ export const vision: VisionPage = {
           },
           images: [
             {
-              src: '/images/exp-workshops.webp',
-              width: 840,
-              height: 630,
+              src: '/images/exp-land.jpg',
+              width: 1536,
+              height: 1024,
               concept: true,
               alt: {
-                en: 'Concept visual of cooking with local produce',
-                it: 'Immagine concettuale di cucina con prodotti locali',
-                tr: 'Yerel ürünlerle yemek yapımının konsept görseli',
+                en: 'Concept visual of a potter at the wheel and local growers in a village street',
+                it: 'Immagine concettuale di un vasaio al tornio e di coltivatori locali in una strada di paese',
+                tr: 'Bir köy sokağında çömlek çarkı başındaki bir çömlekçinin ve yerel üreticilerin konsept görseli', // TR: needs native review
               },
             },
           ],
@@ -991,9 +991,9 @@ export const vision: VisionPage = {
       },
       images: [
         {
-          src: '/images/exp-table.webp',
-          width: 840,
-          height: 560,
+          src: '/images/exp-table.jpg',
+          width: 1536,
+          height: 1024,
           concept: true,
           alt: {
             en: 'Concept visual of dishes served at the table',

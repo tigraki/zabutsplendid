@@ -45,12 +45,12 @@ export const tr: SiteContent = {
       privateEvents: "Çardak altında bir akşam yemeğinin konsept görseli",
       weddings: "Göle ve denize bakan bir düğün töreninin konsept görseli",
       retreats: "Misafir evlerinin arasında bir yoga seansının konsept görseli",
-      workshops: "Yerel ürünlerle yemek yapımının konsept görseli",
+      workshops: "Yerel ürünleri birlikte hazırlayıp tadan insanların konsept görseli", // TR: needs native review
       table: "Sofrada servis edilen yemeklerin konsept görseli",
       land: "Kasabadaki yerel üreticilerin ve zanaatkârların konsept görseli",
       fundTable: "Zabut'ta bir zeytin ağacının altındaki uzun sofranın konsept görseli",
       panorama: "Sambuca çevresindeki kırsalın panoraması; ardında bir göl ve deniz",
-      storyIllustration: "Zabut'un zeytin ağaçları arasındaki ahşap misafir evlerinin konsept görseli",
+      storyIllustration: "Zabut'un zeytin ağaçları arasındaki ahşap misafir evlerinin konsept görseli; ortada yoga yapan küçük bir grup", // TR: needs native review
     },
     behaviours: {
       cookiePreferencesPlaceholder: "Tercih paneli burada açılacak",
@@ -135,7 +135,7 @@ export const tr: SiteContent = {
           },
           digital: {
             label: "Web sitesi, marka varlıkları ve açılış öncesi dijital pazarlama",
-            tip: "Dijital lansman hazırlığı; web sitesi tasarımı ve kurulumu, alan adı ve barındırma, sosyal medya lansmanı ve marka hikâyesi, logo ve marka kitabı için üretime hazır vektör dosyaları ile yapay zekâ destekli yaklaşık 9–12 konsept görseli kapsar. Bu görseller önerilen tasarımı gösterecek ve alanlar inşa edilene kadar konsept olarak belirtilecektir.",
+            tip: "Dijital lansman hazırlığı; web sitesi tasarımı ve kurulumu, alan adı ve barındırma, sosyal medya lansmanı ve marka hikâyesi, logo ve marka kitabı için üretime hazır vektör dosyaları ile yapay zekâ destekli yaklaşık 9–12 konsept görselini kapsar. Bu görseller önerilen tasarımı gösterecek ve alanlar inşa edilene kadar konsept olarak belirtilecektir.",
           },
           company: {
             label: "İtalya'da şirket kuruluşu ve danışmanlık ücretleri",

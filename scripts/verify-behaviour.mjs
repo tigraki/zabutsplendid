@@ -26,7 +26,7 @@ const LANGS = ['en', 'it', 'tr'];
 const SLUGS = ['', '/story', '/vision', '/experiences', '/fundraising', '/blog', '/blog/land-vision', '/contact', '/privacy', '/terms'];
 const path = (lang, slug) => (lang === 'en' ? slug || '/' : `/${lang}${slug}`);
 const SIGNUP = (lang) => `https://zabut.fillout.com/signup?lang=${lang}`;
-const CANONICAL_BASE = process.env.NEXT_PUBLIC_SITE_URL || 'https://zabutsplendid.vercel.app';
+const CANONICAL_BASE = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.zabutsplendid.com';
 // Absolute URL of a site path. The home page is emitted without the trailing slash
 // (https://host rather than https://host/); both spell the same URL.
 const abs = (p) => CANONICAL_BASE + (p === '/' ? '' : p);
@@ -181,12 +181,14 @@ if (PARTS.includes('scroll')) {
 // ---------------------------------------------------------------- lang
 if (PARTS.includes('lang')) {
   for (const width of WIDTHS) {
-    const ctx = await browser.newContext({ viewport: { width, height: 800 } });
-    const page = await ctx.newPage();
-    page.on('pageerror', (e) => consoleErrors.push(`lang@${width}: ${e.message}`));
     for (const from of LANGS) {
       for (const slug of SLUGS) {
         for (const to of LANGS.filter((l) => l !== from)) {
+          // a fresh tab per check: one long-lived headless tab runs out of memory on small
+          // machines after decoding many full-size images
+          const ctx = await browser.newContext({ viewport: { width, height: 800 } });
+          const page = await ctx.newPage();
+          page.on('pageerror', (e) => consoleErrors.push(`lang@${width}: ${e.message}`));
           await page.goto(SITE + path(from, slug), { waitUntil: 'load' });
           if (width <= 880) {
             await page.locator('#navToggle').click();
@@ -197,10 +199,10 @@ if (PARTS.includes('lang')) {
           const htmlLang = await page.evaluate(() => document.documentElement.lang);
           const cur = await page.locator('.lang-switch a[aria-current="page"]').getAttribute('hreflang');
           check(`[${width}] ${path(from, slug)} → ${to}: ${path(to, slug)}`, htmlLang === to && cur === to, `html lang=${htmlLang}`);
+          await ctx.close();
         }
       }
     }
-    await ctx.close();
   }
 }
 
@@ -239,17 +241,17 @@ if (PARTS.includes('tips')) {
 // ---------------------------------------------------------------- signup
 if (PARTS.includes('signup')) {
   // every Fillout link on every page points at the current form for its language
-  const ctx = await browser.newContext({ viewport: { width: 1440, height: 800 } });
-  const page = await ctx.newPage();
   for (const lang of LANGS) {
     for (const slug of SLUGS) {
+      const ctx = await browser.newContext({ viewport: { width: 1440, height: 800 } });
+      const page = await ctx.newPage();
       await page.goto(SITE + path(lang, slug), { waitUntil: 'load' });
       const hrefs = await page.$$eval('a[href*="fillout"]', (as) => as.map((a) => a.getAttribute('href')));
       const wrong = hrefs.filter((h) => h !== SIGNUP(lang));
       check(`${path(lang, slug)} ${hrefs.length} Fillout link(s) → ${SIGNUP(lang)}`, hrefs.length > 0 && wrong.length === 0, wrong.join(', '));
+      await ctx.close();
     }
   }
-  await ctx.close();
   // clicking them opens the form
   const BUTTONS = [
     ['', '.hero-ctas a.cta-outline', 'home "Sign up for updates"'],
@@ -289,8 +291,16 @@ if (PARTS.includes('signup')) {
 
 // ---------------------------------------------------------------- copy
 if (PARTS.includes('copy')) {
-  const ctx = await browser.newContext();
-  const page = await ctx.newPage();
+  // a fresh context per page load: one long-lived headless tab runs out of memory on
+  // small machines after decoding many full-size images
+  let ctx = await browser.newContext();
+  let page = await ctx.newPage();
+  const go = async (url, opts) => {
+    await ctx.close();
+    ctx = await browser.newContext();
+    page = await ctx.newPage();
+    return page.goto(url, opts);
+  };
   const expect = [
     ['/it/story', '.page-intro h1', 'Un soggiorno più significativo'],
     ['/tr/story', '.page-intro h1', 'Daha anlamlı bir konaklama'],
@@ -299,12 +309,12 @@ if (PARTS.includes('copy')) {
     ['/tr', '.pillar:nth-child(2) p', "Sicilya mutfağından ve Sambuca'nın Arap mirasından ilham alan iki ayrı yeme-içme deneyimi."],
   ];
   for (const [p, sel, text] of expect) {
-    await page.goto(SITE + p);
+    await go(SITE + p);
     const got = (await page.locator(sel).textContent())?.trim();
     check(`${p} shows "${text}"`, got === text, got);
   }
   for (const [p, t] of [['/it/story', 'Un soggiorno più significativo · Zabut the Splendid'], ['/tr/story', 'Daha anlamlı bir konaklama · Zabut the Splendid']]) {
-    await page.goto(SITE + p);
+    await go(SITE + p);
     check(`${p} <title> "${t}"`, (await page.title()) === t, await page.title());
   }
   // fundraising budget: figures per language, and the sums add up
@@ -314,7 +324,7 @@ if (PARTS.includes('copy')) {
     tr: ['96.000 €', '186.000 €', '35.000 €', '15.000 €', '6.000 €', '5.500 €', '343.500 €', '45.000 €', '388.500 €', '25.000 €', '413.500 €', '12.000 €', 'Teklif bekleniyor', 'Teklif bekleniyor', 'Teklif bekleniyor', 'Bütçelenecek', 'Netleşecek'],
   };
   for (const lang of LANGS) {
-    await page.goto(SITE + path(lang, '/fundraising'));
+    await go(SITE + path(lang, '/fundraising'));
     const values = await page.$$eval('.fund-row > dd:not(.tip)', (dds) => dds.map((d) => d.textContent.trim()));
     check(`${lang} budget figures`, JSON.stringify(values) === JSON.stringify(BUDGET[lang]), values.join(' | '));
     const n = values.map((v) => Number(v.replace(/[^0-9]/g, '')));
@@ -328,7 +338,7 @@ if (PARTS.includes('copy')) {
       (await sub.evaluateAll((rows) => rows.every((r) => getComputedStyle(r.querySelector('dt')).fontWeight === '600' && getComputedStyle(r).backgroundColor === 'rgba(0, 0, 0, 0)'))));
   }
   for (const p of ['/', '/it', '/tr']) {
-    await page.goto(SITE + p);
+    await go(SITE + p);
     const body = await page.locator('main').textContent();
     check(`${p} no "Zabut heritage" wording left`, !/Zabut heritage|eredità di Zabut|Zabut mirası/.test(body));
   }

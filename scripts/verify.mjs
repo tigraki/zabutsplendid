@@ -141,6 +141,8 @@ const INTENDED_TEXT = [
   'Explore a Partnership',
   'Esplora una partnership',
   'Ortaklık Olanaklarını Keşfet',
+  // IT Experiences closing title: EN is "Planning something?"
+  'Stai organizzando qualcosa?',
 ];
 
 // The fundraising budget was updated on purpose after the port (new figures and an extra

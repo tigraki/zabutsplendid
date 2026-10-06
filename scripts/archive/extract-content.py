@@ -1,3 +1,5 @@
+# ARCHIVED one-off migration script. Do not run: it rewrites the live content/styles
+# files from reference/ and would wipe every change made since the port.
 """One-off migration helper (kept for reference): pulls every string out of the
 reference HTML files and writes content/{en,it,tr}.ts. Copy is taken verbatim.
 Run: python3 scripts/extract-content.py <reference dir>"""

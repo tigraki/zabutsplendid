@@ -13,7 +13,7 @@ export function Header({ lang }: { lang: Lang }) {
     <HeaderShell>
       <div className="nav-inner">
         <Link className="nav-brand" href={pagePath(lang, 'home')}>
-          <SiteImage className="mark" image={images.mark} lang={lang} sizes="32px" loading="eager" />
+          <SiteImage className="mark" image={images.mark} lang={lang} decorative sizes="32px" loading="eager" />
           <span>{brand.wordmark}</span>
         </Link>
         <NavMenu

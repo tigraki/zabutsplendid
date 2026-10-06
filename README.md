@@ -10,6 +10,9 @@ npm install
 npm run dev        # http://localhost:3000
 npm run build      # production build (static pages)
 npm start
+npm run typecheck  # tsc --noEmit
+npm run verify     # visual + computed-style diff vs reference/ (see Verification)
+npm run verify:behaviour
 ```
 
 Runtime dependencies are only `next`, `react` and `react-dom`. Dev dependencies:
@@ -20,7 +23,7 @@ scripts in `scripts/`).
 
 | Variable | Purpose |
 | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Public base URL for canonical, hreflang and Open Graph URLs. Currently `https://zabutsplendid.vercel.app` (see `.env.example`; the same URL is the built-in default). Switching to the real domain is this one change, in `.env` or in the Vercel project settings. |
+| `NEXT_PUBLIC_SITE_URL` | Public base URL for canonical, hreflang, Open Graph, the sitemap and robots.txt. Built-in default: `https://www.zabutsplendid.com` (www, because the bare domain 308-redirects to it on Vercel). Only set it to override; it is read at build time, so a change needs a redeploy. |
 
 Deploy on Vercel as a standard Next.js project. There is no `output: "export"`, so API
 routes can be added under `app/api/` later.
@@ -34,18 +37,20 @@ app/
   (en)/                     English route tree, served at the root (no prefix)
     layout.tsx              root layout → <html lang="en">
     page.tsx                /
-    fundraising/ story/ experiences/ blog/ blog/land-vision/ contact/ privacy/ terms/
+    fundraising/ story/ vision/ experiences/ blog/ blog/land-vision/ contact/ privacy/ terms/
   (intl)/[lang]/            Italian and Turkish route tree: /it/..., /tr/...
     layout.tsx              root layout → <html lang="it|tr">, generateStaticParams = it, tr
     ...same page folders as (en)
   icon.png                  favicon (extracted from the reference)
   apple-icon.png            apple-touch icon (extracted from the reference)
+  sitemap.ts, robots.ts     /sitemap.xml (every page × language, with alternates), /robots.txt
 components/
   RootDocument.tsx          <html>/<body>, fonts, stylesheets, header, <main>, footer
   Header.tsx, Footer.tsx    site chrome (server components)
   HeaderShell.tsx           client: header .scrolled + scroll-to-top on navigation
   NavMenu.tsx               client: nav, aria-current, mobile menu, language switcher
   BudgetBreakdown.tsx       client: fundraising budget table with (i) popovers
+  VisionSwitchGallery.tsx   client: Vision page Slider / Tiles gallery
   PaletteToggle.tsx         client: warm ⇄ silver palette switch (not rendered, see below)
   CookiePreferencesButton.tsx  client: cookie-preferences placeholder (not rendered, see below)
   PageIntro.tsx, ArticleBody.tsx, RichText.tsx, SiteImage.tsx, Spark.tsx   small helpers
@@ -55,6 +60,7 @@ content/
   types.ts                  the content model (SiteContent)
   en.ts, it.ts, tr.ts       all copy, one file per language, identical shape
   shared.ts                 non-copy content shared by all languages
+  vision.ts                 the Vision page: copy in all three languages side by side, and its images
 lib/
   i18n.ts                   languages, getContent(), date and amount formatting
   routes.ts                 page keys ↔ URLs, current-page detection
@@ -68,10 +74,14 @@ styles/
   layout.css                container, header/nav, page shell, page intros, footer
   components.css            everything inside pages
 public/
-  images/                   all images (extracted base64 images + the reference's img/ files)
+  images/                   site images: photos and concept visuals are high-quality JPEGs made
+                            from the full-size originals in the project Drive (CONTENT FOR WEBSITE);
+                            the logo mark (zabut-mark.webp) and the star (spark.png) are the reference's
+  vision/                   Vision page renders (JPEG, see Vision page)
   og.jpg                    Open Graph / Twitter image
 reference/                  the original site (read-only, not part of the build)
-scripts/                    migration + verification helpers (not part of the build)
+scripts/                    verification helpers (not part of the build); archive/ holds the
+                            one-off migration scripts, kept for the record only (do not run)
 ```
 
 The two route groups are there so each language gets its own root layout and therefore
@@ -111,7 +121,7 @@ properties inside `@media`), and one-off values that occur only once (mostly sin
 The class names are the reference's. The CSS was split mechanically into
 `base.css` → `layout.css` → `components.css` (imported in that order after `tokens.css`),
 keeping the original source order inside each file so the cascade behaves the same. The
-split and the value → token replacement were done by `scripts/split-css.py`, and the
+split and the value → token replacement were done by `scripts/archive/split-css.py`, and the
 result was checked by comparing computed styles element by element (see *Verification*).
 
 ## Adding a page
@@ -149,8 +159,9 @@ result was checked by comparing computed styles element by element (see *Verific
   language (`ZABUT`, `The Splendid`, `Sambuca di Sicilia`, `Agrigento`, and the Italian
   pillar labels `Terra` / `Persone` / `Storie`).
 - `{email}` inside a legal paragraph is rendered as the mailto link.
-- Copy was extracted verbatim from the reference HTML by `scripts/extract-content.py`
+- Copy was extracted verbatim from the reference HTML by `scripts/archive/extract-content.py`
   (no retyping), and the verification compares every text node against the reference.
+  Don't rerun it: it rewrites the content files from the reference.
 
 ## Behaviours
 
@@ -159,7 +170,7 @@ Every behaviour in the reference script, and what happened to it:
 | Reference behaviour | Status | Where |
 | --- | --- | --- |
 | Hash router: show one page, hide the rest | Replaced by real routes | `app/` |
-| Router: `aria-current="page"` on the current nav item (via `NAV_PARENT`) | Ported | `NavMenu.tsx`, `NAV_KEY` in `lib/routes.ts` |
+| Router: `aria-current="page"` on the current nav item (via `NAV_PARENT`) | Ported; Blog is also current on the land-vision post (the reference's map only listed its older posts, so the visual diff reports the Blog link's colour there) | `NavMenu.tsx`, `NAV_KEY` in `lib/routes.ts` |
 | Router: `document.title` = h1 without trailing `.`/`!` + ` · Zabut the Splendid` | Ported (server-side metadata) | `lib/metadata.ts` |
 | Router: instant scroll to top on page change | Ported | `HeaderShell.tsx` |
 | Page fade-in on every page change | Kept (CSS animation replays on each page mount) | `layout.css` |
@@ -241,8 +252,10 @@ Every page has: a title (the reference router's rule), the language's meta descr
 (the reference has one per language), canonical URL, `hreflang` alternates for `en`,
 `it`, `tr` and `x-default` (English), Open Graph (`og:type`, `og:site_name`, `og:title`,
 `og:description`, `og:url`, `og:image` 1200×630 with size, `og:locale` and alternates)
-and a `summary_large_image` Twitter card. All absolute URLs come from
-`NEXT_PUBLIC_SITE_URL`.
+and a `summary_large_image` Twitter card. `/sitemap.xml` lists every page in every
+language with its alternates, and `/robots.txt` allows everything and points to it. All
+absolute URLs come from `lib/site-url.ts` (`https://www.zabutsplendid.com` unless
+`NEXT_PUBLIC_SITE_URL` overrides it).
 
 ## Verification
 
@@ -284,9 +297,10 @@ Set `CHROMIUM_PATH` to use an already-installed Chromium; otherwise run
 
 ## Differences from the reference
 
-The last full run was on 27 September 2026, in this folder, after a clean install and
-build. It covered all 27 pages (9 pages × 3 languages) at 375, 768 and 1440 px
-(81 pairs):
+The last full visual run was on 27 September 2026, before the Vision page, the budget
+update and the switch to full-size images, so its pixel figures are historical. It
+covered all 27 pages of the reference (9 pages × 3 languages) at 375, 768 and 1440 px
+(81 pairs); the Vision page has no reference counterpart and is not compared:
 
 - **Computed styles and layout match.** Tag, classes, text, 33 computed properties and
   every element's box (±1px) are identical for every element in the header, page body
@@ -303,21 +317,23 @@ build. It covered all 27 pages (9 pages × 3 languages) at 375, 768 and 1440 px
   - Two harmless properties from `next/image`: it writes `style="color:transparent"` on
     images (this only colours alt text), and `aspect-ratio` on the story illustration
     and the star, which pins them to the original file's ratio (see below).
-- **Pixels.** Pages without photos differ by 0.003–0.03% of pixels; pages with photos
-  by up to about 0.8%. This is image resampling (see the next point) plus the intended
-  copy changes.
+- **Pixels.** On that run, pages without photos differed by 0.003–0.03% of pixels and
+  pages with photos by up to about 0.8% (image resampling at the time, plus the intended
+  copy changes). Photos are now higher-resolution files than the reference's, so photo
+  pixels differ by design.
 - **Behaviour, SEO and links.** All checks in `verify-behaviour.mjs` pass at 375 and
   1440 px, with no console errors or failed requests.
 
-Differences that could not be removed:
+Other differences:
 
-1. **Image pixels.** Image optimization is off (`images.unoptimized` in
-   `next.config.ts`): every image is served as the original file in `public/`, with no
-   resizing or recompression, and the browser scales it. Pages are heavier in exchange for full
-   quality; the Vision renders are high-quality JPEGs of about 0.6MB each.
-2. **Aspect-ratio pin.** Two images sized only by width (the Story illustration and the star) would have drifted by about
-   0.3px in height. They carry an inline `aspect-ratio` equal to the original file's
-   ratio, which puts every line after them back in the same place as the reference.
+1. **Image files.** Image optimization is off (`images.unoptimized` in
+   `next.config.ts`): every image is served as the file in `public/`, with no resizing or
+   recompression, and the browser scales it. The photos and concept visuals were replaced
+   by higher-resolution JPEGs of the same pictures (same framing, about 1450–1920px wide,
+   300–930KB each); the Vision renders are JPEGs of about 0.6MB each.
+2. **Aspect-ratio pin.** Two images sized only by width (the Story illustration and the
+   star) carry an inline `aspect-ratio` equal to the file's ratio, so their box has its
+   final shape before the file loads.
 3. **Trailing slashes.** Canonical and hreflang URLs have no trailing slash (`/it`
    rather than the reference's `/it/`, and the bare domain for the English home page).
    Next.js 308-redirects `/it/` to `/it`, which also covers old links to the language
@@ -345,8 +361,6 @@ Differences that could not be removed:
    - A few unused faces are declared (Cormorant 600 italic, Playfair 500–700 italic),
      because `next/font` requests every weight × style combination. Browsers only
      download the faces a page uses.
-8. **`.env`.** The remote tools cannot write `.env` into this folder. Copy
-   `.env.example` to `.env`, or rely on the built-in default, which is the same URL.
 
 ## Copy errors spotted (not fixed)
 
@@ -356,7 +370,10 @@ changes made after the port: the IT and TR Story headings are now translated
 "Persone" pillar now says "Arab heritage" in all three languages, matching the rest of
 the site. The fundraising page's partnership button now uses the founder's wording,
 "Explore a Partnership" (IT "Esplora una partnership", TR "Ortaklık Olanaklarını Keşfet"),
-as on the Vision page. The visual comparison reports these texts as intended differences.
+as on the Vision page. The IT Experiences closing title is now "Stai organizzando qualcosa?"
+(EN "Planning something?"). Small grammar fixes in budget tooltips (IT, TR) and image alt
+text are not part of the visual comparison. The visual comparison reports the visible texts
+as intended differences.
 
 1. **Sign-off not localised.** The journal sign-off "Ayşe Zülal, Alba in Sicily" is
    identical in IT and TR ("Alba in Sicily" is English).

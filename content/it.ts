@@ -45,12 +45,12 @@ export const it: SiteContent = {
       privateEvents: "Immagine concettuale di una cena serale sotto il pergolato",
       weddings: "Immagine concettuale di una cerimonia nuziale affacciata sul lago e sul mare",
       retreats: "Immagine concettuale di una sessione di yoga tra le case",
-      workshops: "Immagine concettuale di cucina con prodotti locali",
+      workshops: "Immagine concettuale di persone che preparano e assaggiano insieme prodotti locali",
       table: "Immagine concettuale di piatti serviti a tavola",
       land: "Immagine concettuale di coltivatori e artigiani locali nel paese",
       fundTable: "Immagine concettuale di una lunga tavola sotto un ulivo a Zabut",
       panorama: "Panorama della campagna intorno a Sambuca, con un lago e il mare sullo sfondo",
-      storyIllustration: "Immagine concettuale delle case in legno di Zabut tra gli ulivi",
+      storyIllustration: "Immagine concettuale delle case in legno di Zabut tra gli ulivi, con un piccolo gruppo che fa yoga al centro",
     },
     behaviours: {
       cookiePreferencesPlaceholder: "Il pannello delle preferenze si aprirà qui",
@@ -135,7 +135,7 @@ export const it: SiteContent = {
           },
           digital: {
             label: "Sito web, identità di marca e marketing digitale pre-apertura",
-            tip: "La preparazione del lancio digitale comprende progettazione e realizzazione del sito web, dominio e hosting, lancio sui social media e racconto del brand, file vettoriali pronti per la produzione di logo e manuale del brand, e circa 9–12 immagini concettuali realizzate con l'aiuto dell'IA. Queste immagini illustreranno il progetto proposto e saranno indicate come concept finché gli spazi non saranno costruiti.",
+            tip: "La preparazione del lancio digitale comprende progettazione e realizzazione del sito web, dominio e hosting, lancio sui social media e racconto del brand, file vettoriali del logo e del manuale del brand pronti per la produzione, e circa 9–12 immagini concettuali realizzate con l'aiuto dell'IA. Queste immagini illustreranno il progetto proposto e saranno indicate come concept finché gli spazi non saranno costruiti.",
           },
           company: {
             label: "Costituzione della società italiana e onorari professionali",
@@ -254,7 +254,7 @@ export const it: SiteContent = {
       },
       caption: "Immagini concettuali",
       close: {
-        title: "Stai pensando a qualcosa?",
+        title: "Stai organizzando qualcosa?",
         text: "Se stai pensando a un matrimonio, a un ritiro o a un evento a Zabut, scrivici. Ti terremo aggiornato man mano che i progetti prenderanno forma.",
         primaryCta: "Contattaci",
         secondaryCta: "Iscriviti agli aggiornamenti",
