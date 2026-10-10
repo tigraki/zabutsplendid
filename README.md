@@ -228,9 +228,11 @@ nav and the footer as Vision / Visione / Vizyon.
   types at the top of the file (`VisionPage`, `VisionSection`, `VisionBlock`,
   `VisionImage`) are the future schema. `components/pages/VisionPage.tsx` reads only from
   this file.
-- **Copy:** EN and TR are the founder's text, verbatim. IT was translated for the page.
-  Alt text, captions, the nav label and the SEO description were written for the site; the
-  Turkish versions of those lines are marked `// TR: needs native review`.
+- **Copy:** EN and TR are the founder's text, verbatim, except for the lodge updates she
+  confirmed on 10 October 2026 (no mezzanine; a Jacuzzi in every Nido garden, so the separate
+  "Nido con Jacuzzi" block was folded into Nido; no bathtub; a wood-burning stove in every
+  lodge; Dimora sleeps 2 + 2 plus a sofa bed for 2). IT was translated for the page.
+  Alt text, captions, the nav label and the SEO description were written for the site.
 - **Images:** renders in `public/vision/` (`01-site-aerial.jpg` …), made from
   `_incoming/vision/` with clean names: the PNG renders converted to JPEG (quality 92,
   no chroma subsampling) at their original pixel size, about 66MB down to 14MB. None was

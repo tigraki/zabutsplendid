@@ -12,7 +12,7 @@ import type { Lang } from './types';
  * - EN and TR: the founder's text, verbatim.
  * - IT: translated for this page, in the site's Italian voice (informal "tu").
  * - Alt text, captions, the nav label, the page label and the SEO description were
- *   written for the site. In TR these lines carry the comment "TR: needs native review".
+ *   written for the site.
  *
  * Images: renders in public/vision/ (originals stay in _incoming/, never committed),
  * plus a few existing concept visuals from public/images/ for sections without a render.
@@ -115,7 +115,6 @@ export const vision: VisionPage = {
     description: {
       en: 'A place to stay, taste, gather and find your own rhythm. Explore the spaces we’re imagining at Zabut, shown in concept designs for a project in development.',
       it: 'Un luogo per soggiornare, assaporare, ritrovarsi e trovare il proprio ritmo. Scopri gli spazi che immaginiamo a Zabut, nei progetti concettuali di un’iniziativa in fase di sviluppo.',
-      // TR: needs native review
       tr: 'Konaklamak, tatmak, bir araya gelmek ve kendi ritmini bulmak için bir yer. Zabut’ta hayal ettiğimiz mekânları, geliştirme aşamasındaki bir projenin konsept tasarımlarıyla keşfedin.',
     },
   },
@@ -124,7 +123,7 @@ export const vision: VisionPage = {
     label: {
       en: 'Vision',
       it: 'Visione',
-      tr: 'Vizyon', // TR: needs native review
+      tr: 'Vizyon',
     },
     title: {
       en: 'What We’re Creating',
@@ -163,7 +162,7 @@ export const vision: VisionPage = {
       alt: {
         en: 'Aerial concept render of Zabut on the hillside: timber lodges, the farmhouse and the ceremony area, with the lake and the sea beyond',
         it: 'Render concettuale aereo di Zabut sulla collina: lodge in legno, il casale e l’area per le cerimonie, con il lago e il mare sullo sfondo',
-        tr: 'Zabut’un yamaçtaki havadan konsept görseli: ahşap lodge’lar, çiftlik evi ve tören alanı; arkada göl ve deniz', // TR: needs native review
+        tr: 'Zabut’un yamaçtaki havadan konsept görseli: ahşap lodge’lar, çiftlik evi ve tören alanı; arkada göl ve deniz',
       },
     },
     images: [
@@ -175,12 +174,12 @@ export const vision: VisionPage = {
         alt: {
           en: 'Concept render of the site layout from above: lodges along the path, the farmhouse, private pools and the ceremony area',
           it: 'Render concettuale della disposizione vista dall’alto: i lodge lungo il sentiero, il casale, le piscine private e l’area per le cerimonie',
-          tr: 'Yukarıdan arazi yerleşiminin konsept görseli: yol boyunca lodge’lar, çiftlik evi, özel havuzlar ve tören alanı', // TR: needs native review
+          tr: 'Yukarıdan arazi yerleşiminin konsept görseli: yol boyunca lodge’lar, çiftlik evi, özel havuzlar ve tören alanı',
         },
         caption: {
           en: 'Site layout',
           it: 'Disposizione del sito',
-          tr: 'Arazi yerleşimi', // TR: needs native review
+          tr: 'Arazi yerleşimi',
         },
       },
     ],
@@ -250,7 +249,7 @@ export const vision: VisionPage = {
           alt: {
             en: 'Concept render of Soglia: the stone farmhouse with a tiled roof and lounge seating under the pergola',
             it: 'Render concettuale di Soglia: il casale in pietra con il tetto in coppi e i salotti sotto il pergolato',
-            tr: 'Soglia’nın konsept görseli: kiremit çatılı taş çiftlik evi ve pergola altındaki oturma alanı', // TR: needs native review
+            tr: 'Soglia’nın konsept görseli: kiremit çatılı taş çiftlik evi ve pergola altındaki oturma alanı',
           },
         },
         {
@@ -261,12 +260,12 @@ export const vision: VisionPage = {
           alt: {
             en: 'Concept render of the Soglia lobby: a stone reception desk, a library wall and the lounge beyond',
             it: 'Render concettuale della lobby di Soglia: il banco della reception in pietra, la parete-biblioteca e la lounge sullo sfondo',
-            tr: 'Soglia lobisinin konsept görseli: taş resepsiyon bankosu, kütüphane duvarı ve arkada lounge', // TR: needs native review
+            tr: 'Soglia lobisinin konsept görseli: taş resepsiyon bankosu, kütüphane duvarı ve arkada lounge',
           },
           caption: {
             en: 'Reception and library lounge',
             it: 'Reception e lounge con biblioteca',
-            tr: 'Resepsiyon ve kütüphaneli lounge', // TR: needs native review
+            tr: 'Resepsiyon ve kütüphaneli lounge',
           },
         },
       ],
@@ -318,141 +317,34 @@ export const vision: VisionPage = {
             items: {
               en: [
                 'Accommodation for two',
-                'Private bathroom with a shower and bathtub',
+                'Private bathroom with a shower',
+                'Wood-burning stove',
                 'Wardrobe',
                 'Minibar and coffee machine',
                 'Garden with a veranda and outdoor seating',
+                'Private outdoor Jacuzzi',
                 'Sun loungers and a parasol',
               ],
               it: [
                 'Alloggio per due persone',
-                'Bagno privato con doccia e vasca',
+                'Bagno privato con doccia',
+                'Stufa a legna',
                 'Armadio',
                 'Minibar e macchina del caffè',
                 'Giardino con veranda e sedute all’aperto',
+                'Jacuzzi privata all’aperto',
                 'Lettini e ombrellone',
               ],
               tr: [
                 'İki kişilik konaklama',
-                'Duş ve küvet içeren özel banyo',
+                'Duş içeren özel banyo',
+                'Odun sobası',
                 'Gardırop',
                 'Minibar ve kahve makinesi',
                 'Veranda ve açık hava oturma alanı bulunan bahçe',
+                'Özel açık hava jakuzisi',
                 'Şezlonglar ve şemsiye',
               ],
-            },
-          },
-          images: [
-            {
-              src: `${V}/05-nido-garden.jpg`,
-              width: 1600,
-              height: 900,
-              concept: true,
-              alt: {
-                en: 'Concept render of a Nido lodge with a timber-shingle façade, green roof and private garden with sun loungers',
-                it: 'Render concettuale di un lodge Nido con facciata in scandole di legno, tetto verde e giardino privato con lettini',
-                tr: 'Ahşap şingle cepheli, yeşil çatılı ve şezlonglu özel bahçesiyle bir Nido lodge’unun konsept görseli', // TR: needs native review
-              },
-            },
-            {
-              src: `${V}/06-nido-veranda.jpg`,
-              width: 1672,
-              height: 941,
-              concept: true,
-              alt: {
-                en: 'Concept render of the Nido veranda with a small table for two',
-                it: 'Render concettuale della veranda di Nido con un tavolino per due',
-                tr: 'İki kişilik küçük masasıyla Nido verandasının konsept görseli', // TR: needs native review
-              },
-              caption: { en: 'Veranda', it: 'Veranda', tr: 'Veranda' },
-            },
-            {
-              src: `${V}/07-nido-living.jpg`,
-              width: 1672,
-              height: 941,
-              concept: true,
-              alt: {
-                en: 'Concept render of the Nido living area with stairs up to the sleeping loft',
-                it: 'Render concettuale della zona giorno di Nido con la scala verso il soppalco',
-                tr: 'Yatak asma katına çıkan merdiveniyle Nido oturma alanının konsept görseli', // TR: needs native review
-              },
-              caption: { en: 'Living area', it: 'Zona giorno', tr: 'Oturma alanı' }, // TR: needs native review
-            },
-            {
-              src: `${V}/08-nido-loft-living.jpg`,
-              width: 1672,
-              height: 941,
-              concept: true,
-              alt: {
-                en: 'Concept render of the Nido sleeping loft above the living area, with the stairs, sofa and coffee corner',
-                it: 'Render concettuale del soppalco di Nido sopra la zona giorno, con la scala, il divano e l’angolo caffè',
-                tr: 'Nido’nun oturma alanının üzerindeki yatak asma katının konsept görseli: merdiven, kanepe ve kahve köşesi', // TR: needs native review
-              },
-              caption: {
-                en: 'Sleeping loft above the living area',
-                it: 'Il soppalco sopra la zona giorno',
-                tr: 'Oturma alanının üzerindeki asma kat', // TR: needs native review
-              },
-            },
-            {
-              src: `${V}/09-nido-wardrobe-coffee.jpg`,
-              width: 1672,
-              height: 941,
-              concept: true,
-              alt: {
-                en: 'Concept render of the Nido wardrobe, minibar and coffee corner',
-                it: 'Render concettuale dell’armadio, del minibar e dell’angolo caffè di Nido',
-                tr: 'Nido’daki gardırop, minibar ve kahve köşesinin konsept görseli', // TR: needs native review
-              },
-              caption: {
-                en: 'Wardrobe, minibar and coffee machine',
-                it: 'Armadio, minibar e macchina del caffè',
-                tr: 'Gardırop, minibar ve kahve makinesi', // TR: needs native review
-              },
-            },
-            {
-              src: `${V}/10-nido-bathroom.jpg`,
-              width: 1672,
-              height: 941,
-              concept: true,
-              alt: {
-                en: 'Concept render of the Nido bathroom with a bathtub and a shower',
-                it: 'Render concettuale del bagno di Nido con vasca e doccia',
-                tr: 'Küvet ve duşlu Nido banyosunun konsept görseli', // TR: needs native review
-              },
-              caption: {
-                en: 'Bathroom with a shower and bathtub',
-                it: 'Bagno con doccia e vasca',
-                tr: 'Duş ve küvetli banyo', // TR: needs native review
-              },
-            },
-          ],
-        },
-        {
-          id: 'nido-jacuzzi',
-          title: { en: 'Nido con Jacuzzi', it: 'Nido con Jacuzzi', tr: 'Nido con Jacuzzi' },
-          lead: {
-            en: 'The nest, with a little extra room to unwind.',
-            it: 'Il nido, con un po’ di spazio in più per rilassarsi.',
-            tr: 'Dinlenmeye biraz daha alan açan bir yuva.',
-          },
-          text: {
-            en: [
-              'All the comforts of Nido, with a private outdoor Jacuzzi and a small garden bar area for evenings under the Sicilian sky.',
-            ],
-            it: [
-              'Tutti i comfort di Nido, con una Jacuzzi privata all’aperto e un piccolo angolo bar in giardino per le serate sotto il cielo siciliano.',
-            ],
-            tr: [
-              'Nido’nun tüm olanaklarına ek olarak, Sicilya gökyüzünün altında geçirilecek akşamlar için özel açık hava jakuzisi ve küçük bir bahçe barı.',
-            ],
-          },
-          list: {
-            title: { en: 'Additional features', it: 'Dotazioni aggiuntive', tr: 'Ek özellikler' },
-            items: {
-              en: ['Private outdoor Jacuzzi', 'Garden bar area'],
-              it: ['Jacuzzi privata all’aperto', 'Angolo bar in giardino'],
-              tr: ['Özel açık hava jakuzisi', 'Bahçe bar alanı'],
             },
           },
           images: [
@@ -462,10 +354,82 @@ export const vision: VisionPage = {
               height: 1024,
               concept: true,
               alt: {
-                en: 'Concept render of Nido con Jacuzzi: a garden with a private outdoor Jacuzzi and a garden bar',
-                it: 'Render concettuale di Nido con Jacuzzi: giardino con Jacuzzi privata all’aperto e angolo bar',
-                tr: 'Nido con Jacuzzi’nin konsept görseli: özel açık hava jakuzisi ve bahçe barı olan bahçe', // TR: needs native review
+                en: 'Concept render of a Nido garden with a private outdoor Jacuzzi, a small bar counter, sun loungers and a fire pit, with the lodge behind',
+                it: 'Render concettuale di un giardino di Nido con Jacuzzi privata all’aperto, un piccolo bancone bar, lettini e un braciere, con il lodge sullo sfondo',
+                tr: 'Özel açık hava jakuzisi, küçük bir bar tezgâhı, şezlonglar ve ateş çukuru bulunan bir Nido bahçesinin konsept görseli; arkada lodge',
               },
+              caption: { en: 'Private garden with a Jacuzzi', it: 'Giardino privato con Jacuzzi', tr: 'Jakuzili özel bahçe' },
+            },
+            {
+              src: `${V}/05-nido-glass-doors.jpg`,
+              width: 1672,
+              height: 941,
+              concept: true,
+              alt: {
+                en: 'Concept render of a Nido lodge seen through its glazed doors: a wood-burning stove, two armchairs and the bed beyond',
+                it: 'Render concettuale di un lodge Nido visto dalle porte vetrate: una stufa a legna, due poltrone e il letto sullo sfondo',
+                tr: 'Cam kapılarından görülen bir Nido lodge’unun konsept görseli: odun sobası, iki koltuk ve arkada yatak',
+              },
+            },
+            {
+              src: `${V}/06-nido-stove-armchairs.jpg`,
+              width: 1672,
+              height: 941,
+              concept: true,
+              alt: {
+                en: 'Concept render of the Nido sitting area with a wood-burning stove and two armchairs, and the bed behind',
+                it: 'Render concettuale della zona salotto di Nido con una stufa a legna e due poltrone, e il letto alle spalle',
+                tr: 'Nido’nun odun sobalı ve iki koltuklu oturma alanının konsept görseli; arkada yatak',
+              },
+              caption: { en: 'Sitting area', it: 'Zona salotto', tr: 'Oturma alanı' },
+            },
+            {
+              src: `${V}/07-nido-bedroom.jpg`,
+              width: 1672,
+              height: 941,
+              concept: true,
+              alt: {
+                en: 'Concept render of the Nido bedroom with a double bed, a vanity desk and a glass door to the garden',
+                it: 'Render concettuale della camera di Nido con letto matrimoniale, toeletta e porta a vetri sul giardino',
+                tr: 'Nido’nun çift kişilik yatak, makyaj masası ve bahçeye açılan cam kapı bulunan yatak odasının konsept görseli',
+              },
+              caption: { en: 'Bedroom', it: 'Camera da letto', tr: 'Yatak odası' },
+            },
+            {
+              src: `${V}/08-nido-bedroom-armchairs.jpg`,
+              width: 1672,
+              height: 941,
+              concept: true,
+              alt: {
+                en: 'Concept render of the Nido room: the double bed and two armchairs, with the wardrobe and vanity desk beyond',
+                it: 'Render concettuale della stanza di Nido: il letto matrimoniale e due poltrone, con l’armadio e la toeletta sullo sfondo',
+                tr: 'Nido odasının konsept görseli: çift kişilik yatak ve iki koltuk, arkada gardırop ve makyaj masası',
+              },
+              caption: { en: 'Bedroom and sitting area', it: 'Camera e zona salotto', tr: 'Yatak ve oturma alanı' },
+            },
+            {
+              src: `${V}/09-nido-wardrobe-vanity.jpg`,
+              width: 1672,
+              height: 941,
+              concept: true,
+              alt: {
+                en: 'Concept render of the Nido open wardrobe, minibar, coffee corner and vanity desk with a large mirror',
+                it: 'Render concettuale dell’armadio a giorno, del minibar, dell’angolo caffè e della toeletta con grande specchio di Nido',
+                tr: 'Nido’daki açık gardırop, minibar, kahve köşesi ve büyük aynalı makyaj masasının konsept görseli',
+              },
+              caption: { en: 'Wardrobe, minibar and coffee machine', it: 'Armadio, minibar e macchina del caffè', tr: 'Gardırop, minibar ve kahve makinesi' },
+            },
+            {
+              src: `${V}/10-nido-bathroom.jpg`,
+              width: 1672,
+              height: 941,
+              concept: true,
+              alt: {
+                en: 'Concept render of the Nido bathroom with a walk-in shower, terracotta tiles and a wooden vanity unit',
+                it: 'Render concettuale del bagno di Nido con doccia walk-in, piastrelle in cotto e mobile lavabo in legno',
+                tr: 'Nido banyosunun konsept görseli: kabinsiz duş, terrakota karolar ve ahşap lavabo dolabı',
+              },
+              caption: { en: 'Bathroom', it: 'Bagno', tr: 'Banyo' },
             },
           ],
         },
@@ -473,21 +437,21 @@ export const vision: VisionPage = {
           id: 'dimora',
           title: { en: 'Dimora', it: 'Dimora', tr: 'Dimora' },
           kicker: {
-            en: 'A place to call home · 42 m² · Up to five guests',
-            it: 'Un luogo da chiamare casa · 42 m² · Fino a cinque ospiti',
-            tr: 'Ev diyebileceğiniz bir yer · 42 m² · Beş kişiye kadar',
+            en: 'A place to call home · 42 m² · Up to six guests',
+            it: 'Un luogo da chiamare casa · 42 m² · Fino a sei ospiti',
+            tr: 'Ev diyebileceğiniz bir yer · 42 m² · Altı kişiye kadar',
           },
           text: {
             en: [
-              'Dimora makes room for family and friends. Three bedrooms accommodate two, two and one guest, balancing shared time with space to retreat.',
+              'Dimora makes room for family and friends. Two bedrooms for two guests each and a sofa bed for two more balance shared time with space to retreat.',
               'A kitchenette supports easy mornings, while the garden becomes a place to gather, cook and relax.',
             ],
             it: [
-              'Dimora fa spazio a famiglia e amici. Tre camere da letto, per due, due e un ospite, bilanciano il tempo condiviso con lo spazio per stare per conto proprio.',
+              'Dimora fa spazio a famiglia e amici. Due camere da letto per due ospiti ciascuna e un divano letto per altri due bilanciano il tempo condiviso con lo spazio per stare per conto proprio.',
               'Un angolo cottura rende semplici le mattine, mentre il giardino diventa il luogo in cui ritrovarsi, cucinare e rilassarsi.',
             ],
             tr: [
-              'Dimora, aileye ve arkadaşlara yer açıyor. İki, iki ve bir kişilik kapasiteye sahip üç yatak odası, birlikte geçirilen zamanla kişisel alan arasında denge kuruyor.',
+              'Dimora, aileye ve arkadaşlara yer açıyor. İkişer kişilik iki yatak odası ve iki kişilik bir çekyat, birlikte geçirilen zamanla kişisel alan arasında denge kuruyor.',
               'Mini mutfak sabahları kolaylaştırırken bahçe; buluşmak, yemek hazırlamak ve dinlenmek için ortak bir alana dönüşüyor.',
             ],
           },
@@ -495,22 +459,25 @@ export const vision: VisionPage = {
             title: { en: 'Planned features', it: 'Dotazioni previste', tr: 'Planlanan özellikler' },
             items: {
               en: [
-                'Three bedrooms, accommodating up to five guests',
+                'Two bedrooms and a sofa bed, accommodating up to six guests',
                 'Kitchenette with a microwave and coffee machine',
+                'Wood-burning stove',
                 'Private bathroom with a spacious shower',
                 'Private garden with outdoor seating',
                 'Parasol and barbecue',
               ],
               it: [
-                'Tre camere da letto, fino a cinque ospiti',
+                'Due camere da letto e un divano letto, fino a sei ospiti',
                 'Angolo cottura con microonde e macchina del caffè',
+                'Stufa a legna',
                 'Bagno privato con un’ampia doccia',
                 'Giardino privato con sedute all’aperto',
                 'Ombrellone e barbecue',
               ],
               tr: [
-                'Toplam beş kişiye kadar konaklama sunan üç yatak odası',
+                'Toplam altı kişiye kadar konaklama sunan iki yatak odası ve bir çekyat',
                 'Mikrodalga ve kahve makinesi bulunan mini mutfak',
+                'Odun sobası',
                 'Geniş duş alanına sahip özel banyo',
                 'Açık hava oturma grubu bulunan özel bahçe',
                 'Şemsiye ve barbekü',
@@ -519,14 +486,14 @@ export const vision: VisionPage = {
           },
           images: [
             {
-              src: `${V}/12-dimora-living.jpg`,
-              width: 1622,
-              height: 970,
+              src: `${V}/12-dimora-living-stove.jpg`,
+              width: 1672,
+              height: 941,
               concept: true,
               alt: {
-                en: 'Concept render of the Dimora living room opening onto the veranda and garden',
-                it: 'Render concettuale del soggiorno di Dimora aperto sulla veranda e sul giardino',
-                tr: 'Verandaya ve bahçeye açılan Dimora oturma odasının konsept görseli', // TR: needs native review
+                en: 'Concept render of the Dimora living room with a wood-burning stove and glass doors onto the garden',
+                it: 'Render concettuale del soggiorno di Dimora con stufa a legna e porte vetrate sul giardino',
+                tr: 'Dimora’nın odun sobalı ve bahçeye açılan cam kapılı oturma odasının konsept görseli',
               },
             },
             {
@@ -535,63 +502,59 @@ export const vision: VisionPage = {
               height: 941,
               concept: true,
               alt: {
-                en: 'Concept render of the Dimora living area and kitchenette',
-                it: 'Render concettuale della zona giorno e dell’angolo cottura di Dimora',
-                tr: 'Dimora’nın oturma alanı ve mini mutfağının konsept görseli', // TR: needs native review
+                en: 'Concept render of the Dimora living area with a sofa and armchair, and the kitchenette behind',
+                it: 'Render concettuale della zona giorno di Dimora con divano e poltrona, e l’angolo cottura alle spalle',
+                tr: 'Dimora’nın kanepe ve koltuklu oturma alanının konsept görseli; arkada mini mutfak',
               },
-              caption: {
-                en: 'Living area and kitchenette',
-                it: 'Zona giorno e angolo cottura',
-                tr: 'Oturma alanı ve mini mutfak', // TR: needs native review
-              },
+              caption: { en: 'Living area', it: 'Zona giorno', tr: 'Oturma alanı' },
             },
             {
-              src: `${V}/14-dimora-kitchenette.jpg`,
+              src: `${V}/14-dimora-kitchenette-living.jpg`,
               width: 1672,
               height: 941,
               concept: true,
               alt: {
-                en: 'Concept render of the Dimora kitchenette with a microwave',
-                it: 'Render concettuale dell’angolo cottura di Dimora con microonde',
-                tr: 'Mikrodalgalı Dimora mini mutfağının konsept görseli', // TR: needs native review
+                en: 'Concept render of the Dimora kitchenette seen from the living area',
+                it: 'Render concettuale dell’angolo cottura di Dimora visto dalla zona giorno',
+                tr: 'Oturma alanından görülen Dimora mini mutfağının konsept görseli',
+              },
+              caption: { en: 'Living area and kitchenette', it: 'Zona giorno e angolo cottura', tr: 'Oturma alanı ve mini mutfak' },
+            },
+            {
+              src: `${V}/15-dimora-kitchenette.jpg`,
+              width: 1672,
+              height: 941,
+              concept: true,
+              alt: {
+                en: 'Concept render of the Dimora kitchenette with a sink, a microwave and a coffee machine',
+                it: 'Render concettuale dell’angolo cottura di Dimora con lavello, microonde e macchina del caffè',
+                tr: 'Evyesi, mikrodalgası ve kahve makinesi olan Dimora mini mutfağının konsept görseli',
               },
               caption: { en: 'Kitchenette', it: 'Angolo cottura', tr: 'Mini mutfak' },
             },
             {
-              src: `${V}/15-dimora-bedroom-1.jpg`,
+              src: `${V}/16-dimora-bedroom-1.jpg`,
               width: 1672,
               height: 941,
               concept: true,
               alt: {
-                en: 'Concept render of a Dimora double bedroom with a glass door onto the olive trees',
-                it: 'Render concettuale di una camera matrimoniale di Dimora con una porta a vetri sugli ulivi',
-                tr: 'Zeytin ağaçlarına açılan cam kapılı bir Dimora çift kişilik yatak odasının konsept görseli', // TR: needs native review
+                en: 'Concept render of a Dimora bedroom with a double bed, louvred wardrobes and a glass door onto the olive trees',
+                it: 'Render concettuale di una camera di Dimora con letto matrimoniale, armadi a persiana e porta a vetri sugli ulivi',
+                tr: 'Çift kişilik yatak, panjur kapaklı gardıroplar ve zeytin ağaçlarına açılan cam kapı bulunan bir Dimora yatak odasının konsept görseli',
               },
-              caption: { en: 'Double bedroom', it: 'Camera matrimoniale', tr: 'Çift kişilik yatak odası' }, // TR: needs native review
+              caption: { en: 'Bedroom', it: 'Camera da letto', tr: 'Yatak odası' },
             },
             {
-              src: `${V}/16-dimora-bedroom-2.jpg`,
+              src: `${V}/17-dimora-bedroom-2.jpg`,
               width: 1672,
               height: 941,
               concept: true,
               alt: {
-                en: 'Concept render of a Dimora double bedroom under a low sloping ceiling',
-                it: 'Render concettuale di una camera matrimoniale di Dimora sotto un soffitto basso e inclinato',
-                tr: 'Alçak eğimli tavanın altındaki bir Dimora çift kişilik yatak odasının konsept görseli', // TR: needs native review
+                en: 'Concept render of a Dimora bedroom with louvred wardrobes, open shelving, a vanity and a round mirror',
+                it: 'Render concettuale di una camera di Dimora con armadi a persiana, scaffali a giorno, toeletta e specchio tondo',
+                tr: 'Panjur kapaklı gardıroplar, açık raflar, makyaj masası ve yuvarlak ayna bulunan bir Dimora yatak odasının konsept görseli',
               },
-              caption: { en: 'Double bedroom', it: 'Camera matrimoniale', tr: 'Çift kişilik yatak odası' }, // TR: needs native review
-            },
-            {
-              src: `${V}/17-dimora-bedroom-3.jpg`,
-              width: 1672,
-              height: 941,
-              concept: true,
-              alt: {
-                en: 'Concept render of the Dimora single bedroom with built-in shelving and a glass door onto the garden',
-                it: 'Render concettuale della camera singola di Dimora con scaffali a muro e una porta a vetri sul giardino',
-                tr: 'Gömme raflı ve bahçeye açılan cam kapılı Dimora tek kişilik yatak odasının konsept görseli', // TR: needs native review
-              },
-              caption: { en: 'Single bedroom', it: 'Camera singola', tr: 'Tek kişilik yatak odası' }, // TR: needs native review
+              caption: { en: 'Bedroom', it: 'Camera da letto', tr: 'Yatak odası' },
             },
             {
               src: `${V}/18-dimora-bathroom.jpg`,
@@ -601,12 +564,12 @@ export const vision: VisionPage = {
               alt: {
                 en: 'Concept render of the Dimora bathroom with a spacious walk-in shower',
                 it: 'Render concettuale del bagno di Dimora con un’ampia doccia walk-in',
-                tr: 'Geniş, kabinsiz duşlu Dimora banyosunun konsept görseli', // TR: needs native review
+                tr: 'Geniş, kabinsiz duşlu Dimora banyosunun konsept görseli',
               },
               caption: {
                 en: 'Bathroom with a spacious shower',
                 it: 'Bagno con ampia doccia',
-                tr: 'Geniş duşlu banyo', // TR: needs native review
+                tr: 'Geniş duşlu banyo',
               },
             },
           ],
@@ -647,7 +610,7 @@ export const vision: VisionPage = {
               alt: {
                 en: 'Concept render of Dimora con Piscina Privata: a private pool, garden bar, barbecue and outdoor seating',
                 it: 'Render concettuale di Dimora con Piscina Privata: piscina privata, angolo bar, barbecue e sedute all’aperto',
-                tr: 'Dimora con Piscina Privata’nın konsept görseli: özel havuz, bahçe barı, barbekü ve açık hava oturma alanı', // TR: needs native review
+                tr: 'Dimora con Piscina Privata’nın konsept görseli: özel havuz, bahçe barı, barbekü ve açık hava oturma alanı',
               },
             },
           ],
@@ -689,7 +652,7 @@ export const vision: VisionPage = {
           alt: {
             en: 'Concept render of the restaurant: stone walls, a timber ceiling and The Bridge Table running through the room',
             it: 'Render concettuale del ristorante: muri in pietra, soffitto in legno e The Bridge Table al centro della sala',
-            tr: 'Restoranın konsept görseli: taş duvarlar, ahşap tavan ve salonun ortasında uzanan Köprü Sofrası', // TR: needs native review
+            tr: 'Restoranın konsept görseli: taş duvarlar, ahşap tavan ve salonun ortasında uzanan Köprü Sofrası',
           },
           caption: { en: 'The Bridge Table', it: 'The Bridge Table', tr: 'Köprü Sofrası' },
         },
@@ -733,7 +696,7 @@ export const vision: VisionPage = {
           alt: {
             en: 'Aerial concept render of the site, with Promessa’s ceremony area, rows of chairs and an arch, in the lower left below the lodges and the farmhouse',
             it: 'Render concettuale aereo del sito, con l’area cerimonie di Promessa, file di sedie e un arco, in basso a sinistra sotto i lodge e il casale',
-            tr: 'Alanın havadan konsept görseli: sol altta, lodge’ların ve çiftlik evinin aşağısında, sıra sıra sandalyeler ve bir takıyla Promessa’nın tören alanı', // TR: needs native review
+            tr: 'Alanın havadan konsept görseli: sol altta, lodge’ların ve çiftlik evinin aşağısında, sıra sıra sandalyeler ve bir takıyla Promessa’nın tören alanı',
           },
         },
         {
@@ -826,7 +789,7 @@ export const vision: VisionPage = {
               alt: {
                 en: 'Concept visual of a potter at the wheel and local growers in a village street',
                 it: 'Immagine concettuale di un vasaio al tornio e di coltivatori locali in una strada di paese',
-                tr: 'Bir köy sokağında çömlek çarkı başındaki bir çömlekçinin ve yerel üreticilerin konsept görseli', // TR: needs native review
+                tr: 'Bir köy sokağında çömlek çarkı başındaki bir çömlekçinin ve yerel üreticilerin konsept görseli',
               },
             },
           ],
@@ -1037,7 +1000,7 @@ export const vision: VisionPage = {
           alt: {
             en: 'Concept render of Bottega delle Radici: a wine-tasting bar under a timber canopy, with the Local Findings shop behind and the lake beyond',
             it: 'Render concettuale di Bottega delle Radici: un banco di degustazione vini sotto una copertura in legno, con la bottega Local Findings alle spalle e il lago sullo sfondo',
-            tr: 'Bottega delle Radici’nin konsept görseli: ahşap çatı altında şarap tadım barı, arkada Local Findings dükkânı ve uzakta göl', // TR: needs native review
+            tr: 'Bottega delle Radici’nin konsept görseli: ahşap çatı altında şarap tadım barı, arkada Local Findings dükkânı ve uzakta göl',
           },
         },
       ],
@@ -1080,7 +1043,7 @@ export const vision: VisionPage = {
           alt: {
             en: 'Aerial concept render at sunset: paths winding between the lodges, with the lake and the sea in the distance',
             it: 'Render concettuale aereo al tramonto: sentieri tra i lodge, con il lago e il mare in lontananza',
-            tr: 'Gün batımında havadan konsept görseli: lodge’lar arasında kıvrılan yollar, uzakta göl ve deniz', // TR: needs native review
+            tr: 'Gün batımında havadan konsept görseli: lodge’lar arasında kıvrılan yollar, uzakta göl ve deniz',
           },
         },
       ],
@@ -1140,32 +1103,32 @@ export const vision: VisionPage = {
   ],
 
   ui: {
-    conceptLabel: { en: 'Concept', it: 'Concept', tr: 'Konsept' }, // TR: needs native review
+    conceptLabel: { en: 'Concept', it: 'Concept', tr: 'Konsept' },
     gallery: {
-      group: { en: 'Gallery view', it: 'Vista della galleria', tr: 'Galeri görünümü' }, // TR: needs native review
-      slider: { en: 'Slider', it: 'Slider', tr: 'Slayt' }, // TR: needs native review
-      tiles: { en: 'Tiles', it: 'Griglia', tr: 'Izgara' }, // TR: needs native review
-      previous: { en: 'Previous image', it: 'Immagine precedente', tr: 'Önceki görsel' }, // TR: needs native review
-      next: { en: 'Next image', it: 'Immagine successiva', tr: 'Sonraki görsel' }, // TR: needs native review
+      group: { en: 'Gallery view', it: 'Vista della galleria', tr: 'Galeri görünümü' },
+      slider: { en: 'Slider', it: 'Slider', tr: 'Slayt' },
+      tiles: { en: 'Tiles', it: 'Griglia', tr: 'Izgara' },
+      previous: { en: 'Previous image', it: 'Immagine precedente', tr: 'Önceki görsel' },
+      next: { en: 'Next image', it: 'Immagine successiva', tr: 'Sonraki görsel' },
       viewInSlider: {
         en: 'View image {n} in the slider',
         it: 'Mostra l’immagine {n} nello slider',
-        tr: '{n}. görseli slaytta göster', // TR: needs native review
+        tr: '{n}. görseli slaytta göster',
       },
       position: {
         en: 'Image {n} of {total}',
         it: 'Immagine {n} di {total}',
-        tr: 'Görsel {n} / {total}', // TR: needs native review
+        tr: 'Görsel {n} / {total}',
       },
       hint: {
         en: 'Click an image to enlarge',
         it: 'Clicca su un’immagine per ingrandirla',
-        tr: 'Büyütmek için bir görsele tıklayın', // TR: needs native review
+        tr: 'Büyütmek için bir görsele tıklayın',
       },
       hintTouch: {
         en: 'Tap an image to enlarge',
         it: 'Tocca un’immagine per ingrandirla',
-        tr: 'Büyütmek için bir görsele dokunun', // TR: needs native review
+        tr: 'Büyütmek için bir görsele dokunun',
       },
     },
   },

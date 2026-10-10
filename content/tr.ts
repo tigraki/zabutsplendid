@@ -16,7 +16,7 @@ export const tr: SiteContent = {
     nav: {
       fundraising: "Destek",
       story: "Hikâye",
-      vision: "Vizyon", // TR: needs native review
+      vision: "Vizyon",
       experiences: "Deneyimler",
       blog: "Blog",
       contact: "İletişim",
@@ -45,12 +45,12 @@ export const tr: SiteContent = {
       privateEvents: "Çardak altında bir akşam yemeğinin konsept görseli",
       weddings: "Göle ve denize bakan bir düğün töreninin konsept görseli",
       retreats: "Misafir evlerinin arasında bir yoga seansının konsept görseli",
-      workshops: "Yerel ürünleri birlikte hazırlayıp tadan insanların konsept görseli", // TR: needs native review
+      workshops: "Yerel ürünleri birlikte hazırlayıp tadan insanların konsept görseli",
       table: "Sofrada servis edilen yemeklerin konsept görseli",
       land: "Kasabadaki yerel üreticilerin ve zanaatkârların konsept görseli",
       fundTable: "Zabut'ta bir zeytin ağacının altındaki uzun sofranın konsept görseli",
       panorama: "Sambuca çevresindeki kırsalın panoraması; ardında bir göl ve deniz",
-      storyIllustration: "Zabut'un zeytin ağaçları arasındaki ahşap misafir evlerinin konsept görseli; ortada yoga yapan küçük bir grup", // TR: needs native review
+      storyIllustration: "Zabut'un zeytin ağaçları arasındaki ahşap misafir evlerinin konsept görseli; ortada yoga yapan küçük bir grup",
     },
     behaviours: {
       cookiePreferencesPlaceholder: "Tercih paneli burada açılacak",
